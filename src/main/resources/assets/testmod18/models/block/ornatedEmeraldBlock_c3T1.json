@@ -1,0 +1,15 @@
+{
+    "__comment": "Model file for three adjacent connected sides in a T shape (rotated per state, default connected on the 'up/down/west' facing)",
+	"parent": "block/cube",
+    "textures": {
+		"particle": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock0C",
+        "down": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock4C",
+		"up": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock4C",
+		"north": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock3C_ued",
+		"south": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock3C_uwd",
+		"west": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock4C",
+		"east": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock2C_ud"
+		
+		
+    }
+}

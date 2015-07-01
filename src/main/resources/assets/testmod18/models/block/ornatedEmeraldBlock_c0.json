@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock0C"
+    }
+}

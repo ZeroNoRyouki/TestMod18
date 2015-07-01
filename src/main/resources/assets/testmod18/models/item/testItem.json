@@ -1,0 +1,6 @@
+{
+    "parent":"testmod18:item/base_item",
+    "textures": {
+        "layer0":"testmod18:items/testItem"
+    }
+}

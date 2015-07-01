@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "color=red,lit=true": { "model": "testmod18:blockWithState_red_on" },
+		"color=red,lit=false": { "model": "testmod18:blockWithState_red_off" },
+        "color=green,lit=true": { "model": "testmod18:blockWithState_green_on" },
+		"color=green,lit=false": { "model": "testmod18:blockWithState_green_off" }
+    }
+}

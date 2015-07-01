@@ -1,0 +1,75 @@
+Test mod TODO list
+--------------------------------------------------------
+
+ok- Ore that drop itself (like iron)
+
+ok- Ore that drop item (like coal)
+	. Block.dropBlockAsItemWithChance è il metodo chiamato al momento di generare i drop
+	. chiama Block.getDrops per ottenere gli ItemStack da droppare (passando il livello di fortuna)
+	. Block.getDrops chiama nell'ordine:
+		. Block.quantityDropped(state, fortune, random) che si limita a chiamare Block.quantityDroppedWithBonus(fortune, random) che chiama quantityDropped(random) che ritorna 1
+		
+		. chiama Block.getItemDropped(state, random, fortune) per il numero di volte indicato da Block.quantityDropped(state, fortune, random)
+		
+		. Block.getItemDropped(state, random, fortune) ritorna l'Item da droppare
+		
+		. questa Item viene droppata in un ItemStack il cui damage value è ottenuto da Block.damageDropped(state)
+		
+		
+
+ok- Ore that drop block (like stone)
+
+ok- A block with multiple states (on/off, facing, etc)
+	. Block.blockState : blockstate attuale, restituito da Block.getBlockState(). è protected final
+	. Block.defaultBlockState : blockstate di default, gestito da set/getDefaultState. è private
+	. OBBLIGATORIO reimplementare Block.createBlockState
+
+
+
+ok- Block/item with subtypes (like wool, die)
+
+ok- Block that smelt into block (like stone) is this an item smelted to an item?
+
+ok- Ore worldgen
+
+ok- Add items to loot chest
+
+- Basic tools (sword, pick, axe, shovel, hoe)
+
+- A block with inventory space (like a chest)
+
+- A block that smelt some items into others (custom smelting recipes)
+
+- A block with multiple inventories/slot with ISidedInventory access (hopper, pipes). Auto input/output upgrade
+
+- New armour with potion effects 
+
+- New sword with potion effects
+
+- Worldgen structures
+
+- Add items to villagers trades
+
+- A new mob
+
+- RF API
+
+- New enchantment
+
+- Connected textures
+
+- Multiblocks
+
+- Forge multiparts
+
+- A new fluid 
+
+- Block/item in forge ore dictionary 
+
+
+
+
+
+
+
+

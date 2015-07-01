@@ -1,0 +1,26 @@
+# items
+item.testmod18:simpleitem.name=A simple test item
+item.testmod18:testItem.name=A test item
+
+
+# blocks
+tile.testmod18:testCube.name=Test cube with multiple textures
+tile.testmod18:simpleBlock.name=Simple block with single texture
+tile.testmod18:testOre.name=Test ore without special drops
+tile.testmod18:testOre2.name=Test ore with special drops
+tile.testmod18:mywool_0.name=My Wool 1
+tile.testmod18:mywool_1.name=My Wool 2
+tile.testmod18:mywool_2.name=My Wool 3
+tile.testmod18:mywool_3.name=My Wool 4
+tile.testmod18:mywool_4.name=My Wool 5
+tile.testmod18:mywool_5.name=My Wool 6
+tile.testmod18:mywool_6.name=My Wool 7
+tile.testmod18:mywool_7.name=My Wool 8
+tile.testmod18:mywool_8.name=My Wool 9
+tile.testmod18:mywool_9.name=My Wool 10
+tile.testmod18:mywool_10.name=My Wool 11
+tile.testmod18:mywool_11.name=My Wool 12
+tile.testmod18:mywool_12.name=My Wool 13
+tile.testmod18:mywool_13.name=My Wool 14
+tile.testmod18:mywool_14.name=My Wool 15
+tile.testmod18:mywool_15.name=My Wool 16

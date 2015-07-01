@@ -1,0 +1,16 @@
+[
+{
+  "modid": "testmod18",
+  "name": "TestMod MC1.8",
+  "description": "PUT-THE-MOD-DESCRIPTION-HERE",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ZeroNoRyouki"],
+  "credits": "PUT-THE-CREDITS-HERE",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": [zerocore]
+}
+]

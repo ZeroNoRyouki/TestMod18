@@ -1,0 +1,30 @@
+{
+   "forge_marker": 1,
+   "defaults": {
+      "textures": {
+        "particle": "testmod18:blocks/mywool_1",
+        "all": "testmod18:blocks/mywool_1"
+      },
+      "model": "testmod18:mywool"
+   },
+   "variants": {
+      "type": {
+         "t1":    {"textures": {"all": "testmod18:blocks/mywool_1"  } },
+		 "t2":    {"textures": {"all": "testmod18:blocks/mywool_2"  } },
+		 "t3":    {"textures": {"all": "testmod18:blocks/mywool_3"  } },
+		 "t4":    {"textures": {"all": "testmod18:blocks/mywool_4"  } },
+		 "t5":    {"textures": {"all": "testmod18:blocks/mywool_5"  } },
+		 "t6":    {"textures": {"all": "testmod18:blocks/mywool_6"  } },
+		 "t7":    {"textures": {"all": "testmod18:blocks/mywool_7"  } },
+		 "t8":    {"textures": {"all": "testmod18:blocks/mywool_8"  } },
+		 "t9":    {"textures": {"all": "testmod18:blocks/mywool_9"  } },
+		 "t10":   {"textures": {"all": "testmod18:blocks/mywool_10"  } },
+		 "t11":   {"textures": {"all": "testmod18:blocks/mywool_11"  } },
+		 "t12":   {"textures": {"all": "testmod18:blocks/mywool_12"  } },
+		 "t13":   {"textures": {"all": "testmod18:blocks/mywool_13"  } },
+		 "t14":   {"textures": {"all": "testmod18:blocks/mywool_14"  } },
+		 "t15":   {"textures": {"all": "testmod18:blocks/mywool_15"  } },
+		 "t16":   {"textures": {"all": "testmod18:blocks/mywool_16"  } }
+      }
+   }
+}

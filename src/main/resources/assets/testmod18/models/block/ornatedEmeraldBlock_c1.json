@@ -1,0 +1,15 @@
+{
+    "__comment": "Model file for a single connected side (rotated per state, default connected on the 'up' facing)",
+	"parent": "block/cube",
+    "textures": {
+		"particle": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock0C",
+        "down": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock0C",
+		"up": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock4C",
+		"north": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock1C_u",
+		"south": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock1C_u",
+		"west": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock1C_u",
+		"east": "testmod18:blocks/ornatedEmeraldBlock/ornatedEmeraldBlock1C_u"
+		
+		
+    }
+}
