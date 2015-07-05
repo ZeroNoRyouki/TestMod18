@@ -7,19 +7,30 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import zero.mods.zerocore.common.IModInitializationHandler;
 import zero.mods.testmod18.common.CommonProxy;
 import zero.mods.testmod18.lib.References;
+import zero.mods.zerocore.common.IModInstance;
 
 
 @Mod(modid = References.MOD_ID, name = References.MOD_NAME, version = References.MOD_VERSION, dependencies = References.MOD_DEPENDENCIES)
-public class EntryPoint implements IModInitializationHandler {
+public class EntryPoint implements IModInstance {
 
-    public EntryPoint getInstance() {
+    public static EntryPoint getInstance() {
+
         return EntryPoint.s_instance;
     }
 
+
+
+    @Override
+    public String getModId() {
+
+        return References.MOD_ID;
+    }
+
+    @Override
     public CommonProxy getProxy() {
+
         return EntryPoint.s_proxy;
     }
 

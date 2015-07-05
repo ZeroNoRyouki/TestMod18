@@ -6,6 +6,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import zero.mods.testmod18.client.render.TileObjTESR;
 import zero.mods.testmod18.common.blocks.tile.TileObj;
+import zero.mods.testmod18.test.fabricator.BlockFabricator;
 import zero.mods.zerocore.common.blocks.ModOreBlock;
 import zero.mods.testmod18.common.items.Items;
 
@@ -24,6 +25,7 @@ public class Blocks {
     public static final ModelBlock modelBlock = new ModelBlock("modelBlock");
     public static final BlockOBJ blockOBJ = new BlockOBJ("blockOBJ");
     public static final MyWool mywool = new MyWool("mywool");
+    public static final BlockFabricator fabricator = new BlockFabricator("fabricator");
 
     public static void Initialize() {
         // nothing to do here
@@ -39,6 +41,7 @@ public class Blocks {
         Blocks.blockWithState.registerModels();
         Blocks.mywool.registerModels();
         Blocks.blockOBJ.registerModels();
+        Blocks.fabricator.registerModels();
 
         /*
         Item item = Item.getItemFromBlock(Blocks.modelBlock);
