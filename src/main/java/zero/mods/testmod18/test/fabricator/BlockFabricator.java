@@ -5,6 +5,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -18,12 +20,18 @@ public class BlockFabricator extends ModBlock implements ITileEntityProvider {
     public BlockFabricator(String name) {
 
         super(name, Material.rock);
+        this.isBlockContainer = true; // block container
     }
 
     @Override
     protected void initBlock() {
 
         this.setCreativeTab(CreativeTabs.tabBlock);
+        this.setHardness(1.5F);
+        this.setResistance(10.0F);
+        this.setStepSound(this.soundTypePiston);
+        
+        this.registerBlockTileEntity(TileFabricator.class);
     }
 
     @Override
@@ -35,11 +43,44 @@ public class BlockFabricator extends ModBlock implements ITileEntityProvider {
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-        TileEntity te = world.getTileEntity(pos);
+        if (CodeHelper.calledByLogicalServer(world)) {
 
-        if ((null != te) && (te instanceof TileFabricator) && CodeHelper.calledByServer(world))
-            return ((TileFabricator)te).openGui(player);
+            TileEntity tile = world.getTileEntity(pos);
 
-        return super.onBlockActivated(world, pos, state, player, side, hitX, hitY, hitZ);
+            if (tile instanceof TileFabricator)
+                ((TileFabricator)tile).openGui(player);
+        }
+
+        return true;
     }
+
+    @Override
+    public void breakBlock(World world, BlockPos position, IBlockState state) {
+
+        TileEntity tile = world.getTileEntity(position);
+        IInventory inventory = tile instanceof IInventory ? (IInventory)tile : null;
+
+        if (null != inventory) {
+
+            InventoryHelper.dropInventoryItems(world, position, inventory);
+            inventory.clear();
+        }
+
+        // Super MUST be called last because it removes the tile entity
+        super.breakBlock(world, position, state);
+    }
+
+    /**
+     * Called on both Client and Server when World#addBlockEvent is called
+     */
+    public boolean onBlockEventReceived(World worldIn, BlockPos pos, IBlockState state, int eventID, int eventParam) {
+
+        super.onBlockEventReceived(worldIn, pos, state, eventID, eventParam);
+
+        TileEntity tileentity = worldIn.getTileEntity(pos);
+
+        return tileentity == null ? false : tileentity.receiveClientEvent(eventID, eventParam);
+    }
+
+
 }

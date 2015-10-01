@@ -29,7 +29,7 @@ public class BlockWithState extends /* TestModBlock*/ ModBlockWithState {
 
     public BlockWithState(String name) {
 
-        super(name, Material.rock);
+        super(name, Material.rock, false);
 
         this.setDefaultState(this.blockState.getBaseState().withProperty(LIT, Boolean.FALSE).withProperty(COLOR, ColorType.RED));
     }
@@ -37,7 +37,7 @@ public class BlockWithState extends /* TestModBlock*/ ModBlockWithState {
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-        if (CodeHelper.calledByServer(world)) {
+        if (CodeHelper.calledByLogicalServer(world)) {
 
             ItemStack heldItem = player.getHeldItem();
 

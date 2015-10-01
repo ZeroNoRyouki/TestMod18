@@ -1,5 +1,6 @@
 package zero.mods.testmod18.common.blocks;
 
+import jdk.nashorn.internal.ir.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -26,6 +27,11 @@ public class Blocks {
     public static final BlockOBJ blockOBJ = new BlockOBJ("blockOBJ");
     public static final MyWool mywool = new MyWool("mywool");
     public static final BlockFabricator fabricator = new BlockFabricator("fabricator");
+    public static final BlockSmallChest smallChest = new BlockSmallChest("smallChest");
+    public static final BlockWithFacing blockWithFacing = new BlockWithFacing("blockWithFacing");
+    public static final BlockDate blockDate = new BlockDate("blockDate");
+    public static final BlockDirtChest90000 dirtchest90000 = new BlockDirtChest90000("dirtchest90000");
+    public static final BlockEnchanter enchanter = new BlockEnchanter("enchanter");
 
     public static void Initialize() {
         // nothing to do here
@@ -42,6 +48,12 @@ public class Blocks {
         Blocks.mywool.registerModels();
         Blocks.blockOBJ.registerModels();
         Blocks.fabricator.registerModels();
+        Blocks.smallChest.registerModels();
+        //Blocks.blockWithFacing.registerModels();
+        Blocks.blockDate.registerModels();
+        Blocks.enchanter.registerModels();
+
+
 
         /*
         Item item = Item.getItemFromBlock(Blocks.modelBlock);

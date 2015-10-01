@@ -5,6 +5,8 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IChatComponent;
 
+/*
+
 public class RecipeTemplateInventory implements IInventory {
 
 
@@ -22,12 +24,22 @@ public class RecipeTemplateInventory implements IInventory {
 
     @Override
     public ItemStack getStackInSlot(int index) {
-        return null;
+
+        return this.isValidSlotIndex(index) ? this._recipeItemStacks[index] : null;
     }
 
     @Override
     public ItemStack decrStackSize(int index, int count) {
-        return null;
+
+        if ((count <= 0) || !this.isValidSlotIndex(index))
+            return null;
+
+        ItemStack stack = this._recipeItemStacks[index];
+
+        if (null == stack)
+            return null;
+
+
     }
 
     @Override
@@ -38,6 +50,8 @@ public class RecipeTemplateInventory implements IInventory {
     @Override
     public void setInventorySlotContents(int index, ItemStack stack) {
 
+        if (this.isValidSlotIndex(index))
+            this._recipeItemStacks[index] = stack;
     }
 
     @Override
@@ -106,6 +120,13 @@ public class RecipeTemplateInventory implements IInventory {
     }
 
 
+    private boolean isValidSlotIndex(int index) {
+
+        return (index >= 0) && (index < this._recipeItemStacks.length);
+    }
 
     private final ItemStack[] _recipeItemStacks;
 }
+
+
+*/

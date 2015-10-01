@@ -9,13 +9,20 @@ import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import zero.mods.testmod18.EntryPoint;
 import zero.mods.zerocore.common.blocks.ModBlockWithState;
+import zero.mods.zerocore.common.helpers.CodeHelper;
 
 import java.util.List;
 import java.util.Map;
@@ -30,8 +37,7 @@ public class MyWool extends ModBlockWithState {
 
     public MyWool(String name) {
 
-        super(name, Material.cloth);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, WoolType.TYPE1));
+        super(name, Material.cloth, true);
         this._subBlocks = null;
     }
 
@@ -111,10 +117,26 @@ public class MyWool extends ModBlockWithState {
     @Override
     protected void initBlock() {
 
+        this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, WoolType.TYPE1));
+
         this.setCreativeTab(CreativeTabs.tabBlock);
-        //this.setHardness(1.5F);
-        //this.setResistance(10.0F);
+        this.setHardness(1.5F);
+        this.setResistance(10.0F);
         this.setStepSound(this.soundTypeCloth);
+    }
+
+
+    @Override
+    public void onBlockClicked(World worldIn, BlockPos pos, EntityPlayer playerIn) {
+
+        if (CodeHelper.calledByLogicalServer(worldIn) || !worldIn.isAirBlock(pos.up()))
+            return;
+
+        CodeHelper.spawnVanillaParticles(worldIn, EnumParticleTypes.HEART, 2, 10, pos.getX(), pos.getY() + 1, pos.getZ(), 1, 2, 1);
+
+        EntryPoint.getInstance().getProxy().spawnTestFX(worldIn, pos.getX(), pos.getY() + 1, pos.getZ(), 0.1, 0.1, 0.1);
+
+        playerIn.addChatMessage(new ChatComponentText("Hello there!"));
     }
 
     private ItemStack[] _subBlocks;

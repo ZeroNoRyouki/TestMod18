@@ -24,3 +24,20 @@ tile.testmod18:mywool_12.name=My Wool 13
 tile.testmod18:mywool_13.name=My Wool 14
 tile.testmod18:mywool_14.name=My Wool 15
 tile.testmod18:mywool_15.name=My Wool 16
+tile.testmod18:blockWithFacing.name=A block with facing
+
+# commands
+commands.playerinfo.usage=/playerinfo <uuid|position|boom> ...
+commands.playerinfo.uuid.usage=/playerinfo uuid <player name>
+commands.playerinfo.boom.usage=/playerinfo boom <normal|large|huge>
+commands.realtime.usage=/realtime
+
+#enchantments
+enchantment.test_enchantment=Da Killer
+
+#gui/containers
+tile.container.enchanther=Da Magician
+
+#potions
+potion.drowning=Da Drowing
+

@@ -2,6 +2,7 @@ package zero.mods.testmod18.common;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
+import net.minecraft.world.World;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.fml.common.IWorldGenerator;
@@ -9,10 +10,17 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import zero.mods.testmod18.EntryPoint;
+import zero.mods.testmod18.common.blocks.tile.TileSmallChest;
+import zero.mods.testmod18.common.enchantment.TestEnchantment;
+import zero.mods.testmod18.common.potion.Potions;
 import zero.mods.testmod18.test.WorldGenHandler;
 import zero.mods.zerocore.common.ISidedProxy;
 import zero.mods.testmod18.common.blocks.Blocks;
 import zero.mods.testmod18.common.items.Items;
+import zero.mods.zerocore.common.ModGuiHandler;
+import zero.mods.zerocore.common.helpers.CodeHelper;
+import zero.mods.zerocore.common.helpers.ModObjects;
 
 /**
  * Created by marco on 17/05/2015.
@@ -24,6 +32,11 @@ public class CommonProxy implements ISidedProxy {
 
         Items.Initialize();
         Blocks.Initialize();
+
+
+        //GameRegistry.registerTileEntity(TileSmallChest.class, "TileSmallChest"); // FIX
+
+        new ModGuiHandler(EntryPoint.getInstance());
     }
 
     @Override
@@ -36,6 +49,10 @@ public class CommonProxy implements ISidedProxy {
 
         this.addLoot();
 
+        // enchantments
+
+        EntryPoint.testEnchantment = new TestEnchantment(150);
+
 
         //new WorldGenHandler().register();
 
@@ -44,6 +61,13 @@ public class CommonProxy implements ISidedProxy {
     @Override
     public void onPostInit(FMLPostInitializationEvent event) {
 
+        // init potions
+
+        Potions.Initialize();
+
+    }
+
+    public void spawnTestFX(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
     }
 
     void addLoot() {

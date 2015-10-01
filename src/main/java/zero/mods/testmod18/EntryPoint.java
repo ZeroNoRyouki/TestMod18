@@ -7,7 +7,11 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import zero.mods.testmod18.common.CommonProxy;
+import zero.mods.testmod18.common.commands.PlayerInfoCommand;
+import zero.mods.testmod18.common.commands.RealTimeCommand;
+import zero.mods.testmod18.common.enchantment.TestEnchantment;
 import zero.mods.testmod18.lib.References;
 import zero.mods.zerocore.common.IModInstance;
 
@@ -15,11 +19,12 @@ import zero.mods.zerocore.common.IModInstance;
 @Mod(modid = References.MOD_ID, name = References.MOD_NAME, version = References.MOD_VERSION, dependencies = References.MOD_DEPENDENCIES)
 public class EntryPoint implements IModInstance {
 
+    public static TestEnchantment testEnchantment;
+
     public static EntryPoint getInstance() {
 
         return EntryPoint.s_instance;
     }
-
 
 
     @Override
@@ -66,6 +71,13 @@ public class EntryPoint implements IModInstance {
         this.getProxy().onPostInit(event);
     }
 
+
+    @Mod.EventHandler
+    public void onServerLoad(FMLServerStartingEvent event) {
+
+        event.registerServerCommand(new RealTimeCommand());
+        event.registerServerCommand(new PlayerInfoCommand());
+    }
 
 
     @Mod.Instance

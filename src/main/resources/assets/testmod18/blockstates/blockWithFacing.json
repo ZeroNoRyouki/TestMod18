@@ -1,0 +1,23 @@
+{
+   "forge_marker": 1,
+   "defaults": {
+      "textures": {
+        "particle": "testmod18:blocks/blockFacing_front",
+        "down": "testmod18:blocks/blockFacing_topbottom",
+		"up": "testmod18:blocks/blockFacing_topbottom",
+		"north": "testmod18:blocks/blockFacing_side",
+		"south": "testmod18:blocks/blockFacing_side",
+		"west": "testmod18:blocks/blockFacing_side",
+		"east": "testmod18:blocks/blockFacing_side"		
+      },
+      "model": "testmod18:blockWithFacing"
+   },
+   "variants": {
+      "facing": {
+         "north":    {"textures": {"north": "testmod18:blocks/blockFacing_front"  } },
+		 "south":    {"textures": {"south": "testmod18:blocks/blockFacing_front"  } },
+		 "west":    {"textures": {"west": "testmod18:blocks/blockFacing_front"  } },
+		 "east":    {"textures": {"east": "testmod18:blocks/blockFacing_front"  } }
+      }
+   }
+}
