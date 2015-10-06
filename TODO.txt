@@ -56,7 +56,7 @@ ok- Add items to loot chest
 
 - New enchantment
 
-- Connected textures
+ok- Connected textures
 
 - Multiblocks
 
