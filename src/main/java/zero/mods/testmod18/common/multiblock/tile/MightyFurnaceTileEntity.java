@@ -1,5 +1,8 @@
 package zero.mods.testmod18.common.multiblock.tile;
 
+import zero.mods.testmod18.EntryPoint;
+import zero.mods.testmod18.common.multiblock.MightyFurnaceController;
+import zero.mods.zerocore.common.IModInstance;
 import zero.mods.zerocore.common.multiblock.MultiblockControllerBase;
 import zero.mods.zerocore.common.multiblock.MultiblockValidationException;
 import zero.mods.zerocore.common.multiblock.rectangular.RectangularMultiblockTileEntityBase;
@@ -7,28 +10,34 @@ import zero.mods.zerocore.common.multiblock.rectangular.RectangularMultiblockTil
 public class MightyFurnaceTileEntity extends RectangularMultiblockTileEntityBase {
 
     @Override
-    public void isGoodForBottom() throws MultiblockValidationException {
+    public IModInstance getMod() {
 
+        return EntryPoint.getInstance();
+    }
+
+    @Override
+    public void isGoodForBottom() throws MultiblockValidationException {
+        // this part is good for any position in the multiblock
     }
 
     @Override
     public void isGoodForFrame() throws MultiblockValidationException {
-
+        // this part is good for any position in the multiblock
     }
 
     @Override
     public void isGoodForSides() throws MultiblockValidationException {
-
+        // this part is good for any position in the multiblock
     }
 
     @Override
     public void isGoodForTop() throws MultiblockValidationException {
-
+        // this part is good for any position in the multiblock
     }
 
     @Override
     public void isGoodForInterior() throws MultiblockValidationException {
-
+        // this part is good for any position in the multiblock
     }
 
     @Override
@@ -43,11 +52,13 @@ public class MightyFurnaceTileEntity extends RectangularMultiblockTileEntityBase
 
     @Override
     public MultiblockControllerBase createNewMultiblock() {
-        return null;
+
+        return new MightyFurnaceController(this.worldObj);
     }
 
     @Override
     public Class<? extends MultiblockControllerBase> getMultiblockControllerType() {
-        return null;
+
+        return MightyFurnaceController.class;
     }
 }

@@ -2,6 +2,7 @@ package zero.mods.testmod18.client;
 
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -10,6 +11,7 @@ import zero.mods.testmod18.client.particles.TestFX2;
 import zero.mods.testmod18.common.CommonProxy;
 import zero.mods.testmod18.common.blocks.Blocks;
 import zero.mods.testmod18.common.items.Items;
+import zero.mods.zerocore.common.multiblock.MultiblockClientTickHandler;
 
 /**
  * Created by marco on 19/05/2015.
@@ -39,6 +41,7 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(modelLocation, "inventory"));
         */
 
+        FMLCommonHandler.instance().bus().register(new MultiblockClientTickHandler());
 
     }
 

@@ -5,6 +5,7 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.DungeonHooks;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -21,6 +22,7 @@ import zero.mods.testmod18.common.items.Items;
 import zero.mods.zerocore.common.ModGuiHandler;
 import zero.mods.zerocore.common.helpers.CodeHelper;
 import zero.mods.zerocore.common.helpers.ModObjects;
+import zero.mods.zerocore.common.multiblock.MultiblockServerTickHandler;
 
 /**
  * Created by marco on 17/05/2015.
@@ -55,6 +57,10 @@ public class CommonProxy implements ISidedProxy {
 
 
         //new WorldGenHandler().register();
+
+        //
+
+        FMLCommonHandler.instance().bus().register(new MultiblockServerTickHandler());
 
     }
 

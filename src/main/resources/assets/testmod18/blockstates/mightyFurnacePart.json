@@ -1,0 +1,25 @@
+{
+   "forge_marker": 1,
+   "defaults": {
+      "textures": {
+        "particle": "testmod18:blocks/multiblock/mightyFurnace",
+        "north": "testmod18:blocks/multiblock/mightyFurnace",
+		"south": "testmod18:blocks/multiblock/mightyFurnace",
+		"east": "testmod18:blocks/multiblock/mightyFurnace",
+		"west": "testmod18:blocks/multiblock/mightyFurnace",
+		"up": "testmod18:blocks/multiblock/mightyFurnace",
+		"down": "testmod18:blocks/multiblock/mightyFurnace"
+      },
+      "model": "testmod18:mywool"
+   },
+   "variants": {
+		"formed"
+      "parttype": {
+         "wall":    {"textures": {"north": "testmod18:blocks/multiblock/mightyFurnace"} },
+		 "power":    {"textures": {"north": "testmod18:blocks/multiblock/mightyFurnace"} },
+		 "input":    {"textures": {"north": "testmod18:blocks/multiblock/mightyFurnace"} },
+		 "output":    {"textures": {"north": "testmod18:blocks/multiblock/mightyFurnace"} }
+		 
+      }
+   }
+}

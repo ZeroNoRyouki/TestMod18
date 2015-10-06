@@ -2,77 +2,133 @@ package zero.mods.testmod18.common.multiblock;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLLog;
+import zero.mods.testmod18.common.multiblock.tile.MightyFurnaceIOPortTileEntity;
+import zero.mods.testmod18.common.multiblock.tile.MightyFurnacePowerTileEntity;
 import zero.mods.zerocore.common.multiblock.IMultiblockPart;
 import zero.mods.zerocore.common.multiblock.MultiblockControllerBase;
 import zero.mods.zerocore.common.multiblock.MultiblockValidationException;
 import zero.mods.zerocore.common.multiblock.rectangular.RectangularMultiblockControllerBase;
-import zero.mods.zerocore.common.multiblock.rectangular.RectangularMultiblockTileEntityBase;
 
 public class MightyFurnaceController extends RectangularMultiblockControllerBase {
 
 
     public MightyFurnaceController(World world) {
+
         super(world);
-    }
 
-    @Override
-    public void decodeDescriptionPacket(NBTTagCompound data) {
-
-    }
-
-    @Override
-    public void onAttachedPartWithMultiblockData(IMultiblockPart part, NBTTagCompound data) {
-
+        this._inputPort = this._outputPort = null;
+        this._powerPort = null;
     }
 
     @Override
     protected void onBlockAdded(IMultiblockPart newPart) {
-
     }
 
     @Override
     protected void onBlockRemoved(IMultiblockPart oldPart) {
 
+        if (oldPart instanceof MightyFurnacePowerTileEntity) {
+
+            MightyFurnacePowerTileEntity tile = (MightyFurnacePowerTileEntity)oldPart;
+
+            if (this._powerPort == tile)
+                this._powerPort = null;
+
+        } else if (oldPart instanceof MightyFurnaceIOPortTileEntity) {
+
+            MightyFurnaceIOPortTileEntity tile = (MightyFurnaceIOPortTileEntity)oldPart;
+
+            if (this._outputPort == tile)
+                this._outputPort = null;
+            else if (this._inputPort == tile)
+                this._inputPort = null;
+        }
+    }
+
+    @Override
+    protected void isMachineWhole() throws MultiblockValidationException {
+
+        MightyFurnacePowerTileEntity powerPort = null;
+        MightyFurnaceIOPortTileEntity inputPort = null;
+        MightyFurnaceIOPortTileEntity outputPort = null;
+
+        super.isMachineWhole();
+
+        for (IMultiblockPart part : this.connectedParts) {
+
+            if (part instanceof MightyFurnacePowerTileEntity) {
+
+                if (null != powerPort)
+                    throw new MultiblockValidationException("There is already a power port in the machine");
+
+                powerPort = (MightyFurnacePowerTileEntity)part;
+
+            } else if (part instanceof MightyFurnaceIOPortTileEntity) {
+
+                MightyFurnaceIOPortTileEntity io = (MightyFurnaceIOPortTileEntity) part;
+                boolean isInput = io.isInput();
+
+                if (isInput) {
+
+                    if (null != inputPort)
+                        throw new MultiblockValidationException("There is already an input port in the machine");
+
+                    inputPort = io;
+
+                } else {
+
+                    if (null != outputPort)
+                        throw new MultiblockValidationException("There is already an output port in the machine");
+
+                    outputPort = io;
+                }
+            }
+        }
+
+        if (null == outputPort)
+            throw new MultiblockValidationException("You need a power port in the machine");
+
+        if (null == inputPort)
+            throw new MultiblockValidationException("You need a input port in the machine");
+
+        if (null == outputPort)
+            throw new MultiblockValidationException("You need a output port in the machine");
     }
 
     @Override
     protected void onMachineAssembled() {
 
+        this.lookupPorts();
+
+        FMLLog.info("CONTROLLER - assembled");
     }
 
     @Override
     protected void onMachineRestored() {
 
+        this.lookupPorts();
+
+        FMLLog.info("CONTROLLER - restored");
     }
 
     @Override
     protected void onMachinePaused() {
 
+        // pause work?
+        FMLLog.info("CONTROLLER - paused");
     }
 
     @Override
     protected void onMachineDisassembled() {
 
+        FMLLog.info("CONTROLLER - disassembled");
     }
 
-    @Override
-    protected int getMinimumNumberOfBlocksForAssembledMachine() {
-        return 0;
-    }
 
     @Override
-    protected int getMaximumXSize() {
-        return 0;
-    }
+    public void onAttachedPartWithMultiblockData(IMultiblockPart part, NBTTagCompound data) {
 
-    @Override
-    protected int getMaximumZSize() {
-        return 0;
-    }
-
-    @Override
-    protected int getMaximumYSize() {
-        return 0;
     }
 
     @Override
@@ -84,6 +140,33 @@ public class MightyFurnaceController extends RectangularMultiblockControllerBase
     protected void onAssimilated(MultiblockControllerBase assimilator) {
 
     }
+
+
+    @Override
+    protected int getMinimumNumberOfBlocksForAssembledMachine() {
+
+        return 9;
+    }
+
+    @Override
+    protected int getMaximumXSize() {
+
+        return 3;
+    }
+
+    @Override
+    protected int getMaximumZSize() {
+
+        return 3;
+    }
+
+    @Override
+    protected int getMaximumYSize() {
+
+        return 3;
+    }
+
+
 
     @Override
     protected boolean updateServer() {
@@ -109,4 +192,36 @@ public class MightyFurnaceController extends RectangularMultiblockControllerBase
     public void formatDescriptionPacket(NBTTagCompound data) {
 
     }
+
+    @Override
+    public void decodeDescriptionPacket(NBTTagCompound data) {
+
+    }
+
+    private void lookupPorts() {
+
+        this._outputPort = this._inputPort = null;
+        this._powerPort = null;
+
+        for (IMultiblockPart part : this.connectedParts) {
+
+            if (part instanceof MightyFurnacePowerTileEntity)
+                this._powerPort = (MightyFurnacePowerTileEntity)part;
+
+            if (part instanceof MightyFurnaceIOPortTileEntity) {
+
+                MightyFurnaceIOPortTileEntity io = (MightyFurnaceIOPortTileEntity)part;
+
+                if (io.isInput())
+                    this._inputPort = io;
+                else
+                    this._outputPort = io;
+            }
+        }
+    }
+
+    private MightyFurnaceIOPortTileEntity _inputPort;
+    private MightyFurnaceIOPortTileEntity _outputPort;
+    private MightyFurnacePowerTileEntity _powerPort;
+
 }

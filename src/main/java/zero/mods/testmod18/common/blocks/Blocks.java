@@ -7,6 +7,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import zero.mods.testmod18.client.render.TileObjTESR;
 import zero.mods.testmod18.common.blocks.tile.TileObj;
+import zero.mods.testmod18.common.multiblock.MightyFurnaceBlock;
 import zero.mods.testmod18.test.fabricator.BlockFabricator;
 import zero.mods.zerocore.common.blocks.ModOreBlock;
 import zero.mods.testmod18.common.items.Items;
@@ -32,6 +33,7 @@ public class Blocks {
     public static final BlockDate blockDate = new BlockDate("blockDate");
     public static final BlockDirtChest90000 dirtchest90000 = new BlockDirtChest90000("dirtchest90000");
     public static final BlockEnchanter enchanter = new BlockEnchanter("enchanter");
+    public static final MightyFurnaceBlock mightyFurnacePart = new MightyFurnaceBlock("mightyFurnacePart");
 
     public static void Initialize() {
         // nothing to do here
@@ -52,6 +54,7 @@ public class Blocks {
         //Blocks.blockWithFacing.registerModels();
         Blocks.blockDate.registerModels();
         Blocks.enchanter.registerModels();
+        Blocks.mightyFurnacePart.registerModels();
 
 
 
