@@ -72,7 +72,7 @@ public class BlockOutwardFacingTest extends ModBlockWithState {
     @Override
     protected BlockState createBlockState() {
 
-        return new BlockState(this, new IProperty[] {FACING_UP, FACING_DOWN, FACING_EAST, FACING_WEST, FACING_NORTH, FACING_SUD});
+        return new BlockState(this, new IProperty[] {FACING_UP, FACING_DOWN, FACING_EAST, FACING_WEST, FACING_NORTH, FACING_SUD, BLOCK_TYPE});
     }
 
     public enum BlockType implements IStringSerializable {
