@@ -6,7 +6,7 @@ import zero.mods.testmod18.EntryPoint;
 import zero.mods.zerocore.common.IModInstance;
 import zero.mods.zerocore.common.blocks.ModTileEntity;
 
-public class TileRFProducer extends ModTileEntity implements IEnergyProvider {
+public abstract class TileRFProducer extends ModTileEntity implements IEnergyProvider {
 
     public TileRFProducer() {
 

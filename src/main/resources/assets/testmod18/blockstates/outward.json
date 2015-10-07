@@ -1,0 +1,45 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "particle": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
+            "down": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
+			"up": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",			
+			"north": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
+			"south": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
+			"west": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
+			"east": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple"
+        },
+        "model": "cube",
+        "uvlock": true
+    },
+    "variants": {
+      "type": {
+        "wall": {},
+        "power": {
+          "textures": {
+            "north": "testmod18:blocks/multiblock/powerFurnace/SingleBlockPowerInput",
+            "south": "testmod18:blocks/multiblock/powerFurnace/SingleBlockPowerInput",
+            "west": "testmod18:blocks/multiblock/powerFurnace/SingleBlockPowerInput",
+            "east": "testmod18:blocks/multiblock/powerFurnace/SingleBlockPowerInput"
+          },
+          "input": {
+            "textures": {
+              "north": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemInput",
+              "south": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemInput",
+              "west": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemInput",
+              "east": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemInput"
+            },
+            "output": {
+              "textures": {
+                "north": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemOutput",
+                "south": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemOutput",
+                "west": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemOutput",
+                "east": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemOutput"
+              }
+            }
+          }
+        }
+      }
+    }
+}

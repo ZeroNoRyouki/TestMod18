@@ -34,6 +34,7 @@ public class Blocks {
     public static final BlockDirtChest90000 dirtchest90000 = new BlockDirtChest90000("dirtchest90000");
     public static final BlockEnchanter enchanter = new BlockEnchanter("enchanter");
     public static final MightyFurnaceBlock mightyFurnacePart = new MightyFurnaceBlock("mightyFurnacePart");
+    public static final BlockOutwardFacingTest outwardFacing = new BlockOutwardFacingTest("outward");
 
     public static void Initialize() {
         // nothing to do here
@@ -55,6 +56,7 @@ public class Blocks {
         Blocks.blockDate.registerModels();
         Blocks.enchanter.registerModels();
         Blocks.mightyFurnacePart.registerModels();
+        Blocks.outwardFacing.registerModels();
 
 
 
