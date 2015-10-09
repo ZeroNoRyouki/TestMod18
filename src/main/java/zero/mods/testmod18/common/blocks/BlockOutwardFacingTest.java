@@ -18,13 +18,13 @@ import zero.mods.zerocore.common.blocks.ModBlockWithState;
  */
 public class BlockOutwardFacingTest extends ModBlockWithState {
 
-    public static PropertyBool FACING_UP = PropertyBool.create("up");
-    public static PropertyBool FACING_DOWN = PropertyBool.create("down");
-    public static PropertyBool FACING_EAST = PropertyBool.create("east");
-    public static PropertyBool FACING_WEST = PropertyBool.create("west");
-    public static PropertyBool FACING_NORTH = PropertyBool.create("north");
-    public static PropertyBool FACING_SUD = PropertyBool.create("sud");
-    public static PropertyEnum BLOCK_TYPE = PropertyEnum.create("type", BlockType.class);
+    public static PropertyEnum FACING_UP = PropertyEnum.create("upface", FaceConnection.class);
+    public static PropertyEnum FACING_DOWN = PropertyEnum.create("downface", FaceConnection.class);
+    public static PropertyEnum FACING_EAST = PropertyEnum.create("eastface", FaceConnection.class);
+    public static PropertyEnum FACING_WEST = PropertyEnum.create("westface", FaceConnection.class);
+    public static PropertyEnum FACING_SUD = PropertyEnum.create("sudface", FaceConnection.class);
+    public static PropertyEnum FACING_NORTH = PropertyEnum.create("northface", FaceConnection.class);
+    //public static PropertyEnum BLOCK_TYPE = PropertyEnum.create("type", BlockType.class);
 
 
     public BlockOutwardFacingTest(String name) {
@@ -44,6 +44,14 @@ public class BlockOutwardFacingTest extends ModBlockWithState {
         return super.getStateFromMeta(meta);
     }
 
+
+    @Override
+    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+
+        return super.getActualState(state, worldIn, pos);
+    }
+
+
     @Override
     public String getBlockNameStateSuffix(ItemStack stack) {
         return null;
@@ -58,21 +66,55 @@ public class BlockOutwardFacingTest extends ModBlockWithState {
         this.setStepSound(this.soundTypePiston);
 
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING_DOWN, false).withProperty(FACING_UP, false).withProperty(FACING_EAST, false)
-                .withProperty(FACING_WEST, false).withProperty(FACING_NORTH, false).withProperty(FACING_SUD, false).withProperty(BLOCK_TYPE, BlockType.Wall));
+                .withProperty(FACING_WEST, false).withProperty(FACING_NORTH, false).withProperty(FACING_SUD, false)/*.withProperty(BLOCK_TYPE, BlockType.Wall)*/);
     }
 
-
-    @Override
-    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-
-        return super.getActualState(state, worldIn, pos);
-    }
 
 
     @Override
     protected BlockState createBlockState() {
 
-        return new BlockState(this, new IProperty[] {FACING_UP, FACING_DOWN, FACING_EAST, FACING_WEST, FACING_NORTH, FACING_SUD, BLOCK_TYPE});
+        return new BlockState(this, new IProperty[] {FACING_UP, FACING_DOWN, FACING_EAST, FACING_WEST, FACING_NORTH, FACING_SUD/*, BLOCK_TYPE*/});
+    }
+
+    public enum FaceConnection implements IStringSerializable {
+
+        None("none"),
+        All("all"),
+        Down("d"),
+        Left("l"),
+        Right("r"),
+        Up("u"),
+        DownLeft("dl"),
+        LeftUp("lu"),
+        RightDown("rd"),
+        RightLeft("rl"),
+        UpDown("ud"),
+        UpRight("ur"),
+        DownLeftUp("dlu"),
+        LeftUpRight("lur"),
+        RightDownLeft("rdl"),
+        UpRightDown("urd");
+
+        FaceConnection(String name) {
+
+            this._name = name;
+        }
+
+        @Override
+        public String toString() {
+
+            return this._name;
+        }
+
+        @Override
+        public String getName() {
+
+            return this._name;
+        }
+
+
+        private String _name;
     }
 
     public enum BlockType implements IStringSerializable {
