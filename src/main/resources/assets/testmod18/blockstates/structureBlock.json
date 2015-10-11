@@ -1,125 +1,67 @@
 {
-   "forge_marker": 1,
-   "defaults": {
-      "textures": {
-        "particle": "testmod18:blocks/structurePart/0none",
-        "up": "testmod18:blocks/structurePart/0none",
-		"down": "testmod18:blocks/structurePart/0none",
-		"east": "testmod18:blocks/structurePart/0none",
-		"west": "testmod18:blocks/structurePart/0none",
-		"sud": "testmod18:blocks/structurePart/0none",
-		"north": "testmod18:blocks/structurePart/0none"
-      },
-      "model": "testmod18:structureBlock"
-   },
-   "variants": {
-      "upface": {
-         "none": {"textures": {"all": "testmod18:blocks/structurePart/0none"  } },
-		 "all":  {"textures": {"all": "testmod18:blocks/structurePart/4all"  } },
-		 "d":    {"textures": {"all": "testmod18:blocks/structurePart/1D"  } },
-		 "l":    {"textures": {"all": "testmod18:blocks/structurePart/1L"  } },
-		 "r":    {"textures": {"all": "testmod18:blocks/structurePart/1R"  } },
-		 "u":    {"textures": {"all": "testmod18:blocks/structurePart/1U"  } },
-		 "dl":   {"textures": {"all": "testmod18:blocks/structurePart/2DL"  } },
-		 "lu":   {"textures": {"all": "testmod18:blocks/structurePart/2LU"  } },
-		 "rd":   {"textures": {"all": "testmod18:blocks/structurePart/2RD"  } },
-		 "rl":   {"textures": {"all": "testmod18:blocks/structurePart/2RL"  } },
-		 "ud":   {"textures": {"all": "testmod18:blocks/structurePart/2UD"  } },
-		 "ur":   {"textures": {"all": "testmod18:blocks/structurePart/2UR"  } },
-		 "dlu":  {"textures": {"all": "testmod18:blocks/structurePart/3DLU"  } },
-		 "lur":  {"textures": {"all": "testmod18:blocks/structurePart/3LUR"  } },
-		 "rdl":  {"textures": {"all": "testmod18:blocks/structurePart/3RDL"  } },
-		 "urd":  {"textures": {"all": "testmod18:blocks/structurePart/3URD"  } }
-      },
-      "downface": {
-         "none": {"textures": {"all": "testmod18:blocks/structurePart/0none"  } },
-		 "all":  {"textures": {"all": "testmod18:blocks/structurePart/4all"  } },
-		 "d":    {"textures": {"all": "testmod18:blocks/structurePart/1D"  } },
-		 "l":    {"textures": {"all": "testmod18:blocks/structurePart/1L"  } },
-		 "r":    {"textures": {"all": "testmod18:blocks/structurePart/1R"  } },
-		 "u":    {"textures": {"all": "testmod18:blocks/structurePart/1U"  } },
-		 "dl":   {"textures": {"all": "testmod18:blocks/structurePart/2DL"  } },
-		 "lu":   {"textures": {"all": "testmod18:blocks/structurePart/2LU"  } },
-		 "rd":   {"textures": {"all": "testmod18:blocks/structurePart/2RD"  } },
-		 "rl":   {"textures": {"all": "testmod18:blocks/structurePart/2RL"  } },
-		 "ud":   {"textures": {"all": "testmod18:blocks/structurePart/2UD"  } },
-		 "ur":   {"textures": {"all": "testmod18:blocks/structurePart/2UR"  } },
-		 "dlu":  {"textures": {"all": "testmod18:blocks/structurePart/3DLU"  } },
-		 "lur":  {"textures": {"all": "testmod18:blocks/structurePart/3LUR"  } },
-		 "rdl":  {"textures": {"all": "testmod18:blocks/structurePart/3RDL"  } },
-		 "urd":  {"textures": {"all": "testmod18:blocks/structurePart/3URD"  } }
-      },
-      "eastface": {
-         "none": {"textures": {"all": "testmod18:blocks/structurePart/0none"  } },
-		 "all":  {"textures": {"all": "testmod18:blocks/structurePart/4all"  } },
-		 "d":    {"textures": {"all": "testmod18:blocks/structurePart/1D"  } },
-		 "l":    {"textures": {"all": "testmod18:blocks/structurePart/1L"  } },
-		 "r":    {"textures": {"all": "testmod18:blocks/structurePart/1R"  } },
-		 "u":    {"textures": {"all": "testmod18:blocks/structurePart/1U"  } },
-		 "dl":   {"textures": {"all": "testmod18:blocks/structurePart/2DL"  } },
-		 "lu":   {"textures": {"all": "testmod18:blocks/structurePart/2LU"  } },
-		 "rd":   {"textures": {"all": "testmod18:blocks/structurePart/2RD"  } },
-		 "rl":   {"textures": {"all": "testmod18:blocks/structurePart/2RL"  } },
-		 "ud":   {"textures": {"all": "testmod18:blocks/structurePart/2UD"  } },
-		 "ur":   {"textures": {"all": "testmod18:blocks/structurePart/2UR"  } },
-		 "dlu":  {"textures": {"all": "testmod18:blocks/structurePart/3DLU"  } },
-		 "lur":  {"textures": {"all": "testmod18:blocks/structurePart/3LUR"  } },
-		 "rdl":  {"textures": {"all": "testmod18:blocks/structurePart/3RDL"  } },
-		 "urd":  {"textures": {"all": "testmod18:blocks/structurePart/3URD"  } }
-      },
-      "westface": {
-         "none": {"textures": {"all": "testmod18:blocks/structurePart/0none"  } },
-		 "all":  {"textures": {"all": "testmod18:blocks/structurePart/4all"  } },
-		 "d":    {"textures": {"all": "testmod18:blocks/structurePart/1D"  } },
-		 "l":    {"textures": {"all": "testmod18:blocks/structurePart/1L"  } },
-		 "r":    {"textures": {"all": "testmod18:blocks/structurePart/1R"  } },
-		 "u":    {"textures": {"all": "testmod18:blocks/structurePart/1U"  } },
-		 "dl":   {"textures": {"all": "testmod18:blocks/structurePart/2DL"  } },
-		 "lu":   {"textures": {"all": "testmod18:blocks/structurePart/2LU"  } },
-		 "rd":   {"textures": {"all": "testmod18:blocks/structurePart/2RD"  } },
-		 "rl":   {"textures": {"all": "testmod18:blocks/structurePart/2RL"  } },
-		 "ud":   {"textures": {"all": "testmod18:blocks/structurePart/2UD"  } },
-		 "ur":   {"textures": {"all": "testmod18:blocks/structurePart/2UR"  } },
-		 "dlu":  {"textures": {"all": "testmod18:blocks/structurePart/3DLU"  } },
-		 "lur":  {"textures": {"all": "testmod18:blocks/structurePart/3LUR"  } },
-		 "rdl":  {"textures": {"all": "testmod18:blocks/structurePart/3RDL"  } },
-		 "urd":  {"textures": {"all": "testmod18:blocks/structurePart/3URD"  } }
-      },
-      "sudface": {
-         "none": {"textures": {"all": "testmod18:blocks/structurePart/0none"  } },
-		 "all":  {"textures": {"all": "testmod18:blocks/structurePart/4all"  } },
-		 "d":    {"textures": {"all": "testmod18:blocks/structurePart/1D"  } },
-		 "l":    {"textures": {"all": "testmod18:blocks/structurePart/1L"  } },
-		 "r":    {"textures": {"all": "testmod18:blocks/structurePart/1R"  } },
-		 "u":    {"textures": {"all": "testmod18:blocks/structurePart/1U"  } },
-		 "dl":   {"textures": {"all": "testmod18:blocks/structurePart/2DL"  } },
-		 "lu":   {"textures": {"all": "testmod18:blocks/structurePart/2LU"  } },
-		 "rd":   {"textures": {"all": "testmod18:blocks/structurePart/2RD"  } },
-		 "rl":   {"textures": {"all": "testmod18:blocks/structurePart/2RL"  } },
-		 "ud":   {"textures": {"all": "testmod18:blocks/structurePart/2UD"  } },
-		 "ur":   {"textures": {"all": "testmod18:blocks/structurePart/2UR"  } },
-		 "dlu":  {"textures": {"all": "testmod18:blocks/structurePart/3DLU"  } },
-		 "lur":  {"textures": {"all": "testmod18:blocks/structurePart/3LUR"  } },
-		 "rdl":  {"textures": {"all": "testmod18:blocks/structurePart/3RDL"  } },
-		 "urd":  {"textures": {"all": "testmod18:blocks/structurePart/3URD"  } }
-      },
-      "northface": {
-         "none": {"textures": {"all": "testmod18:blocks/structurePart/0none"  } },
-		 "all":  {"textures": {"all": "testmod18:blocks/structurePart/4all"  } },
-		 "d":    {"textures": {"all": "testmod18:blocks/structurePart/1D"  } },
-		 "l":    {"textures": {"all": "testmod18:blocks/structurePart/1L"  } },
-		 "r":    {"textures": {"all": "testmod18:blocks/structurePart/1R"  } },
-		 "u":    {"textures": {"all": "testmod18:blocks/structurePart/1U"  } },
-		 "dl":   {"textures": {"all": "testmod18:blocks/structurePart/2DL"  } },
-		 "lu":   {"textures": {"all": "testmod18:blocks/structurePart/2LU"  } },
-		 "rd":   {"textures": {"all": "testmod18:blocks/structurePart/2RD"  } },
-		 "rl":   {"textures": {"all": "testmod18:blocks/structurePart/2RL"  } },
-		 "ud":   {"textures": {"all": "testmod18:blocks/structurePart/2UD"  } },
-		 "ur":   {"textures": {"all": "testmod18:blocks/structurePart/2UR"  } },
-		 "dlu":  {"textures": {"all": "testmod18:blocks/structurePart/3DLU"  } },
-		 "lur":  {"textures": {"all": "testmod18:blocks/structurePart/3LUR"  } },
-		 "rdl":  {"textures": {"all": "testmod18:blocks/structurePart/3RDL"  } },
-		 "urd":  {"textures": {"all": "testmod18:blocks/structurePart/3URD"  } }
-      }	  
-   }
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "particle": "testmod18:blocks/structurePart/green",
+      "up": "testmod18:blocks/structurePart/green",
+      "down": "testmod18:blocks/structurePart/green",
+      "east": "testmod18:blocks/structurePart/green",
+      "west": "testmod18:blocks/structurePart/green",
+      "south": "testmod18:blocks/structurePart/green",
+      "north": "testmod18:blocks/structurePart/green"
+    },
+    "model": "testmod18:structureBlock"
+  },
+  "variants": {
+    "downface": {
+      "false": {},
+      "true": {
+        "textures": {
+          "down": "testmod18:blocks/structurePart/red"
+        }
+      }
+    },
+    "eastface": {
+      "false": {},
+      "true": {
+        "textures": {
+          "east": "testmod18:blocks/structurePart/red"
+        }
+      }
+    },
+    "northface": {
+      "false": {},
+      "true": {
+        "textures": {
+          "north": "testmod18:blocks/structurePart/red"
+        }
+      }
+    },
+    "upface": {
+      "false": {},
+      "true": {
+        "textures": {
+          "up": "testmod18:blocks/structurePart/red"
+        }
+      }
+    },
+    "southface": {
+      "false": {},
+      "true": {
+        "textures": {
+          "south": "testmod18:blocks/structurePart/red"
+        }
+      }
+    },
+    "westface": {
+      "false": {},
+      "true": {
+        "textures": {
+          "west": "testmod18:blocks/structurePart/red"
+        }
+      }
+    }
+
+
+  }
 }
