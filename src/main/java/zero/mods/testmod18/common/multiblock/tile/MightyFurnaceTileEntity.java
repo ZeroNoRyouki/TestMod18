@@ -51,6 +51,20 @@ public class MightyFurnaceTileEntity extends RectangularMultiblockTileEntityBase
     }
 
     @Override
+    public void onMachineAssembled(MultiblockControllerBase controller) {
+
+        super.onMachineAssembled(controller);
+        this.updateBlockState();
+    }
+
+    @Override
+    public void onMachineBroken() {
+
+        super.onMachineBroken();
+        this.updateBlockState();
+    }
+
+    @Override
     public MultiblockControllerBase createNewMultiblock() {
 
         return new MightyFurnaceController(this.worldObj);
@@ -60,5 +74,10 @@ public class MightyFurnaceTileEntity extends RectangularMultiblockTileEntityBase
     public Class<? extends MultiblockControllerBase> getMultiblockControllerType() {
 
         return MightyFurnaceController.class;
+    }
+
+    private void updateBlockState() {
+
+        this.worldObj.markBlockForUpdate(this.pos);
     }
 }

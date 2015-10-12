@@ -23,10 +23,16 @@ public class MightyFurnaceController extends RectangularMultiblockControllerBase
 
     @Override
     protected void onBlockAdded(IMultiblockPart newPart) {
+
+        FMLLog.info("MightyFurnaceController:onBlockAdded : %s", newPart.toString());
+
+
     }
 
     @Override
     protected void onBlockRemoved(IMultiblockPart oldPart) {
+
+        FMLLog.info("MightyFurnaceController:onBlockRemoved : %s", oldPart.toString());
 
         if (oldPart instanceof MightyFurnacePowerTileEntity) {
 
@@ -48,6 +54,9 @@ public class MightyFurnaceController extends RectangularMultiblockControllerBase
 
     @Override
     protected void isMachineWhole() throws MultiblockValidationException {
+
+        FMLLog.info("MightyFurnaceController:isMachineWhole");
+
 
         MightyFurnacePowerTileEntity powerPort = null;
         MightyFurnaceIOPortTileEntity inputPort = null;
@@ -145,7 +154,9 @@ public class MightyFurnaceController extends RectangularMultiblockControllerBase
     @Override
     protected int getMinimumNumberOfBlocksForAssembledMachine() {
 
-        return 9;
+        FMLLog.info("Controller.getMinimumNumberOfBlocksForAssembledMachine called");
+
+        return 27;
     }
 
     @Override

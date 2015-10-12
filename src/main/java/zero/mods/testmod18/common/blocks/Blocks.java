@@ -7,7 +7,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import zero.mods.testmod18.client.render.TileObjTESR;
 import zero.mods.testmod18.common.blocks.tile.TileObj;
-import zero.mods.testmod18.common.multiblock.MightyFurnaceBlock;
+import zero.mods.testmod18.common.multiblock.MightyFurnaceBlockPort;
+import zero.mods.testmod18.common.multiblock.MightyFurnaceBlockType;
+import zero.mods.testmod18.common.multiblock.MightyFurnaceBlockWall;
 import zero.mods.testmod18.test.fabricator.BlockFabricator;
 import zero.mods.zerocore.common.blocks.ModOreBlock;
 import zero.mods.testmod18.common.items.Items;
@@ -33,8 +35,14 @@ public class Blocks {
     public static final BlockDate blockDate = new BlockDate("blockDate");
     public static final BlockDirtChest90000 dirtchest90000 = new BlockDirtChest90000("dirtchest90000");
     public static final BlockEnchanter enchanter = new BlockEnchanter("enchanter");
-    //public static final MightyFurnaceBlock mightyFurnacePart = new MightyFurnaceBlock("mightyFurnacePart");
     public static final BlockOutwardFacingTest outwardFacing = new BlockOutwardFacingTest("structureBlock");
+
+    public static final MightyFurnaceBlockWall mightyFurnacePart = new MightyFurnaceBlockWall("mightyFurnaceWall");
+    public static final MightyFurnaceBlockPort mightyFurnacePowerPort = new MightyFurnaceBlockPort("mightyFurnacePowerPort", MightyFurnaceBlockType.Power);
+    public static final MightyFurnaceBlockPort mightyFurnaceInputPort = new MightyFurnaceBlockPort("mightyFurnaceInputPort", MightyFurnaceBlockType.Input);
+    public static final MightyFurnaceBlockPort mightyFurnaceOutputPort = new MightyFurnaceBlockPort("mightyFurnaceOutputPort", MightyFurnaceBlockType.Output);
+
+
 
     public static void Initialize() {
         // nothing to do here
@@ -55,8 +63,9 @@ public class Blocks {
         //Blocks.blockWithFacing.registerModels();
         Blocks.blockDate.registerModels();
         Blocks.enchanter.registerModels();
-        //Blocks.mightyFurnacePart.registerModels();
         Blocks.outwardFacing.registerModels();
+
+        Blocks.mightyFurnacePart.registerModels();
 
 
 
