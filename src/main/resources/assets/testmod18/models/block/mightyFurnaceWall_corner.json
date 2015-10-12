@@ -1,0 +1,21 @@
+{
+    "textures": {
+        "corner": "testmod18:blocks/multiblock/powerFurnace/FaceCorner",
+        "particle": "testmod18:blocks/multiblock/powerFurnace/FaceCorner"
+    },
+    "elements": [
+        {
+            "from": [ 0, 0, 0 ],
+            "to": [ 16, 16, 16 ],
+            "faces": {
+                "up":    { "texture": "testmod18:blocks/multiblock/powerFurnace/FaceCorner", "cullface": "up" },
+                "south": { "texture": "testmod18:blocks/multiblock/powerFurnace/FaceCorner", "cullface": "south", "rotation": 180 },
+                "east":  { "texture": "testmod18:blocks/multiblock/powerFurnace/FaceCorner", "cullface": "east", "rotation": 270 },
+
+                "down":  { "texture": "testmod18:blocks/multiblock/powerFurnace/FaceCorner", "cullface": "down", "rotation": 180 },
+                "north": { "texture": "testmod18:blocks/multiblock/powerFurnace/FaceCorner", "cullface": "north", "rotation": 270 },
+                "west":  { "texture": "testmod18:blocks/multiblock/powerFurnace/FaceCorner", "cullface": "west", "rotation": 90 }
+            }
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
+        "down": "testmod18:blocks/multiblock/powerFurnace/FaceCenterEmpty",
+        "up": "testmod18:blocks/multiblock/powerFurnace/FaceSideSNh",
+        "north": "testmod18:blocks/multiblock/powerFurnace/FaceSideUDv",
+        "south": "testmod18:blocks/multiblock/powerFurnace/FaceSideUDh",
+        "west": "testmod18:blocks/multiblock/powerFurnace/FaceCenterEmpty",
+        "east": "testmod18:blocks/multiblock/powerFurnace/FaceSideSNv"
+    }
+}
