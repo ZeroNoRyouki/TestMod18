@@ -1,12 +1,22 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "particle": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
-        "down": "testmod18:blocks/multiblock/powerFurnace/FaceCenterEmpty",
-        "up": "testmod18:blocks/multiblock/powerFurnace/FaceSideSNh",
-        "north": "testmod18:blocks/multiblock/powerFurnace/FaceSideUDv",
-        "south": "testmod18:blocks/multiblock/powerFurnace/FaceSideUDh",
-        "west": "testmod18:blocks/multiblock/powerFurnace/FaceCenterEmpty",
-        "east": "testmod18:blocks/multiblock/powerFurnace/FaceSideSNv"
+  "textures": {
+    "side": "testmod18:blocks/multiblock/powerFurnace/FaceSide",
+    "test": "testmod18:blocks/mywool_1"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "south": { "texture": "#side", "cullface": "south", "rotation": 0 },
+        "west":  { "texture": "#side", "cullface": "west", "rotation": 180 },
+
+        "north": { "texture": "#side", "cullface": "north", "rotation": 0 },
+        "east":  { "texture": "#side", "cullface": "east", "rotation": 180 },
+
+        "up":    { "texture": "#side", "cullface": "up", "rotation": 0 },
+        "down":  { "texture": "#side", "cullface": "down", "rotation": 180 }
+      }
     }
+  ]
 }
