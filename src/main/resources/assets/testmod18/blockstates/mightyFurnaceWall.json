@@ -19,17 +19,64 @@
       "downfacing=false,eastfacing=false,northfacing=false,southfacing=true,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_frame", "y": -180},
       "downfacing=false,eastfacing=true,northfacing=false,southfacing=true,upfacing=false,westfacing=false": { "model": "testmod18:mightyFurnaceWall_frame", "y": -270},
 
-
-      "downfacing=false,eastfacing=true,northfacing=false,southfacing=true,upfacing=true,westfacing=false": { "model": "testmod18:mightyFurnaceWall_corner" },
-
-      "downfacing=false,eastfacing=false,northfacing=false,southfacing=true,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_corner" },
-      "downfacing=false,eastfacing=false,northfacing=true,southfacing=false,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_corner" },
       "downfacing=false,eastfacing=true,northfacing=true,southfacing=false,upfacing=true,westfacing=false": { "model": "testmod18:mightyFurnaceWall_corner" },
+      "downfacing=false,eastfacing=true,northfacing=false,southfacing=true,upfacing=true,westfacing=false": { "model": "cobblestone" },
+      "downfacing=false,eastfacing=false,northfacing=true,southfacing=false,upfacing=true,westfacing=true": { "model": "cobblestone" },
+      "downfacing=false,eastfacing=false,northfacing=false,southfacing=true,upfacing=true,westfacing=true": { "model": "cobblestone" },
 
-      "downfacing=true,eastfacing=false,northfacing=false,southfacing=true,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_corner" },
-      "downfacing=true,eastfacing=true,northfacing=false,southfacing=true,upfacing=false,westfacing=false": { "model": "testmod18:mightyFurnaceWall_corner" },
-      "downfacing=true,eastfacing=false,northfacing=true,southfacing=false,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_corner" },
-      "downfacing=true,eastfacing=true,northfacing=true,southfacing=false,upfacing=false,westfacing=false": { "model": "testmod18:mightyFurnaceWall_corner" }
+      "downfacing=true,eastfacing=true,northfacing=true,southfacing=false,upfacing=false,westfacing=false": { "model": "cobblestone" },
+      "downfacing=true,eastfacing=true,northfacing=false,southfacing=true,upfacing=false,westfacing=false": { "model": "cobblestone" },
+      "downfacing=true,eastfacing=false,northfacing=true,southfacing=false,upfacing=false,westfacing=true": { "model": "cobblestone" },
+      "downfacing=true,eastfacing=false,northfacing=false,southfacing=true,upfacing=false,westfacing=true": { "model": "cobblestone" },
+
+
+
+
+
+      "downfacing=true,eastfacing=true,northfacing=false,southfacing=false,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=false,northfacing=true,southfacing=true,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=true,northfacing=true,southfacing=true,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=false,northfacing=true,southfacing=false,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=false,northfacing=true,southfacing=true,upfacing=false,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=true,northfacing=true,southfacing=true,upfacing=true,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=true,northfacing=true,southfacing=true,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=true,northfacing=true,southfacing=true,upfacing=true,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=false,northfacing=true,southfacing=true,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=false,northfacing=true,southfacing=true,upfacing=true,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=false,northfacing=true,southfacing=true,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=true,northfacing=true,southfacing=false,upfacing=true,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=true,northfacing=false,southfacing=false,upfacing=true,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=false,northfacing=true,southfacing=true,upfacing=true,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=false,northfacing=true,southfacing=true,upfacing=false,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=true,northfacing=true,southfacing=true,upfacing=false,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=false,northfacing=false,southfacing=false,upfacing=true,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=true,northfacing=false,southfacing=false,upfacing=false,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=false,northfacing=false,southfacing=true,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=false,northfacing=true,southfacing=false,upfacing=false,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=false,northfacing=false,southfacing=false,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=true,northfacing=false,southfacing=true,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=false,northfacing=false,southfacing=true,upfacing=true,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=false,northfacing=false,southfacing=false,upfacing=true,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=true,northfacing=false,southfacing=true,upfacing=true,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=true,northfacing=true,southfacing=true,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=false,northfacing=false,southfacing=false,upfacing=false,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=true,northfacing=false,southfacing=false,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=true,northfacing=false,southfacing=true,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=false,northfacing=true,southfacing=true,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=true,northfacing=false,southfacing=true,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=false,northfacing=false,southfacing=false,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=true,northfacing=true,southfacing=true,upfacing=false,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=true,northfacing=true,southfacing=false,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=false,northfacing=false,southfacing=true,upfacing=false,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=true,northfacing=false,southfacing=false,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=false,northfacing=true,southfacing=false,upfacing=true,westfacing=false": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=true,northfacing=true,southfacing=false,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=true,northfacing=false,southfacing=false,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=true,northfacing=true,southfacing=false,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=true,eastfacing=true,northfacing=true,southfacing=false,upfacing=false,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" },
+      "downfacing=false,eastfacing=true,northfacing=false,southfacing=true,upfacing=true,westfacing=true": { "model": "testmod18:mightyFurnaceWall_single" }
+
+
 
 
 	}

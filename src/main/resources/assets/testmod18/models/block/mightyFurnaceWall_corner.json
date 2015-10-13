@@ -1,14 +1,10 @@
 {
-    "textures": {
-        "corner": "testmod18:blocks/multiblock/powerFurnace/FaceCorner",
-        "particle": "testmod18:blocks/multiblock/powerFurnace/FaceCorner"
-    },
     "elements": [
         {
             "from": [ 0, 0, 0 ],
             "to": [ 16, 16, 16 ],
             "faces": {
-                "up":    { "texture": "testmod18:blocks/multiblock/powerFurnace/FaceCorner", "cullface": "up" },
+                "up":    { "texture": "blocks/brick", "cullface": "up" },
                 "south": { "texture": "testmod18:blocks/multiblock/powerFurnace/FaceCorner", "cullface": "south", "rotation": 180 },
                 "east":  { "texture": "testmod18:blocks/multiblock/powerFurnace/FaceCorner", "cullface": "east", "rotation": 270 },
 
