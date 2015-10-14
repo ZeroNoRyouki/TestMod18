@@ -2,22 +2,27 @@
    "forge_marker": 1,
    "defaults": {
       "textures": {
-        "particle": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
-        "down": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
-		"up": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
-		"north": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
-		"south": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
-		"west": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
-		"east": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple"
+        "side": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
+        "particle": "#side",
+        "down": "#side",
+		"up": "#side",
+		"north": "#side",
+		"south": "#side",
+		"west": "#side",
+		"east": "#side"
       },
       "model": "cube"
    },
    "variants": {
+     "assembled": {
+       "true": {"textures": {"facing": "testmod18:blocks/multiblock/powerFurnace/FaceCenterPower" }},
+       "false": {"textures": {"facing": "testmod18:blocks/multiblock/powerFurnace/SingleBlockPowerInput" }}
+     },
       "hfacing": {
-         "north": {"textures": {"north": "testmod18:blocks/multiblock/powerFurnace/SingleBlockPowerInput" }},
-		 "south": {"textures": {"south": "testmod18:blocks/multiblock/powerFurnace/SingleBlockPowerInput" }},
-		 "west": {"textures": {"west": "testmod18:blocks/multiblock/powerFurnace/SingleBlockPowerInput" }},
-		 "east": {"textures": {"east": "testmod18:blocks/multiblock/powerFurnace/SingleBlockPowerInput" }}
+         "north": {"textures": {"north": "#facing" }},
+		 "south": {"textures": {"south": "#facing" }},
+		 "west": {"textures": {"west": "#facing" }},
+		 "east": {"textures": {"east": "#facing" }}
       }
    }
 }

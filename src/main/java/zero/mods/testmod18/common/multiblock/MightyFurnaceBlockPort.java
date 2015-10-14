@@ -1,19 +1,28 @@
 package zero.mods.testmod18.common.multiblock;
 
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import zero.mods.testmod18.common.multiblock.tile.MightyFurnaceTileEntity;
 import zero.mods.zerocore.common.blocks.ModBlock;
+import zero.mods.zerocore.common.lib.BlockFacings;
+import zero.mods.zerocore.common.multiblock.IMultiblockPart;
+import zero.mods.zerocore.common.multiblock.rectangular.PartPosition;
 
 /**
  * Created by marco on 12/10/2015.
  */
 public class MightyFurnaceBlockPort extends MightyFurnaceBlockBase {
+
+    public static final PropertyBool ASSEMBLED = PropertyBool.create("assembled");
+
 
     public MightyFurnaceBlockPort(String name, MightyFurnaceBlockType portType) {
 
@@ -52,8 +61,6 @@ public class MightyFurnaceBlockPort extends MightyFurnaceBlockBase {
     }
 
 
-
-/*
     @Override
     public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos position) {
 
@@ -63,14 +70,34 @@ public class MightyFurnaceBlockPort extends MightyFurnaceBlockBase {
 
             MightyFurnaceTileEntity wallTile = (MightyFurnaceTileEntity)part;
             boolean assembled = wallTile.isConnected() && wallTile.getMultiblockController().isAssembled();
-            BlockFacings facings = assembled ? wallTile.getOutwardsDir() : BlockFacings.ALL;
 
-            return facings.toBlockState(state);
+            state = state.withProperty(ASSEMBLED, assembled);
+
+            if (assembled) {
+
+                switch (wallTile.getPartPosition()) {
+
+                    case NorthFace:
+                        state = state.withProperty(ModBlock.HFACING, EnumFacing.NORTH);
+                        break;
+
+                    case SouthFace:
+                        state = state.withProperty(ModBlock.HFACING, EnumFacing.SOUTH);
+                        break;
+
+                    case WestFace:
+                        state = state.withProperty(ModBlock.HFACING, EnumFacing.WEST);
+                        break;
+
+                    case EastFace:
+                        state = state.withProperty(ModBlock.HFACING, EnumFacing.EAST);
+                        break;
+                }
+            }
         }
 
         return state;
     }
-*/
 
     /***
      * Called before a block is placed in the world to generate the block state for the block
@@ -97,14 +124,14 @@ public class MightyFurnaceBlockPort extends MightyFurnaceBlockBase {
     @Override
     protected BlockState createBlockState() {
 
-        return new BlockState(this, new IProperty[] {ModBlock.HFACING});
+        return new BlockState(this, new IProperty[] {ModBlock.HFACING, ASSEMBLED});
     }
 
     @Override
     protected void initBlock() {
 
         super.initBlock();
-        this.setDefaultState(this.blockState.getBaseState().withProperty(ModBlock.HFACING, EnumFacing.NORTH));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(ModBlock.HFACING, EnumFacing.NORTH).withProperty(ASSEMBLED, false));
     }
 
 

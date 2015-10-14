@@ -1,23 +1,28 @@
 {
-   "forge_marker": 1,
-   "defaults": {
-      "textures": {
-         "particle": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
-         "down": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
-         "up": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
-         "north": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
-         "south": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
-         "west": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
-         "east": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple"
-      },
-      "model": "cube"
-   },
-   "variants": {
-      "hfacing": {
-         "north": {"textures": {"north": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemInput" }},
-         "south": {"textures": {"south": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemInput" }},
-         "west": {"textures": {"west": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemInput" }},
-         "east": {"textures": {"east": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemInput" }}
-      }
-   }
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "side": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
+      "particle": "#side",
+      "down": "#side",
+      "up": "#side",
+      "north": "#side",
+      "south": "#side",
+      "west": "#side",
+      "east": "#side"
+    },
+    "model": "cube"
+  },
+  "variants": {
+    "assembled": {
+      "true": {"textures": {"facing": "testmod18:blocks/multiblock/powerFurnace/FaceCenterItemInput" }},
+      "false": {"textures": {"facing": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemInput" }}
+    },
+    "hfacing": {
+      "north": {"textures": {"north": "#facing" }},
+      "south": {"textures": {"south": "#facing" }},
+      "west": {"textures": {"west": "#facing" }},
+      "east": {"textures": {"east": "#facing" }}
+    }
+  }
 }

@@ -1,7 +1,6 @@
 {
   "textures": {
-    "side": "testmod18:blocks/multiblock/powerFurnace/FaceSide",
-    "test": "testmod18:blocks/mywool_1"
+    "side": "testmod18:blocks/multiblock/powerFurnace/FaceSide"
   },
   "elements": [
     {

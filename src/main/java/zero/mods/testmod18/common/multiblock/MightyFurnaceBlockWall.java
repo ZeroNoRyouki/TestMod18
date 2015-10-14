@@ -4,18 +4,14 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import zero.mods.testmod18.common.multiblock.tile.MightyFurnaceTileEntity;
 import zero.mods.zerocore.common.lib.BlockFacings;
 import zero.mods.zerocore.common.multiblock.IMultiblockPart;
-import zero.mods.zerocore.common.multiblock.MultiblockControllerBase;
-import zero.mods.zerocore.common.multiblock.rectangular.PartPosition;
 
-/**
- * Created by marco on 12/10/2015.
- */
+
+
 public class MightyFurnaceBlockWall extends MightyFurnaceBlockBase {
 
     public MightyFurnaceBlockWall(String name) {

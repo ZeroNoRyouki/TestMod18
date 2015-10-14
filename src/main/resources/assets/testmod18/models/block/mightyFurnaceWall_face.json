@@ -1,6 +1,11 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "testmod18:blocks/multiblock/powerFurnace/FaceCenterEmpty"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "up": "testmod18:blocks/multiblock/powerFurnace/FaceCenterEmpty",
+    "down": "testmod18:blocks/multiblock/powerFurnace/FaceCenterEmpty",
+    "north": "testmod18:blocks/multiblock/powerFurnace/FaceCenterFront",
+    "south": "testmod18:blocks/multiblock/powerFurnace/FaceCenterFront",
+    "west": "testmod18:blocks/multiblock/powerFurnace/FaceCenterFront",
+    "east": "testmod18:blocks/multiblock/powerFurnace/FaceCenterFront"
+  }
 }
