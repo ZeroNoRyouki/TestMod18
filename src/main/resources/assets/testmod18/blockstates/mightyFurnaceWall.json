@@ -1,6 +1,5 @@
 {
   "variants": {
-
     "faces=none": { "model": "testmod18:mightyFurnaceWall_single" },
     "faces=all": { "model": "testmod18:mightyFurnaceWall_single" },
     "faces=face_d": { "model": "testmod18:mightyFurnaceWall_face" },
@@ -28,6 +27,7 @@
     "faces=corner_enu": { "model": "testmod18:mightyFurnaceWall_corner", "y": -180 },
     "faces=corner_nuw": { "model": "testmod18:mightyFurnaceWall_corner", "y": 90 },
     "faces=corner_dnw": { "model": "testmod18:mightyFurnaceWall_corner", "x": 180 },
-    "faces=corner_den": { "model": "testmod18:mightyFurnaceWall_corner", "x": -90, "y": 180 }
-	}
+    "faces=corner_den": { "model": "testmod18:mightyFurnaceWall_corner", "x": -90, "y": 180 },
+    "faces=opposite_ew": { "model": "testmod18:mightyFurnaceWall_face_on" }
+  }
 }
