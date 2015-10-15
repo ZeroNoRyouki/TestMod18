@@ -19,6 +19,17 @@ public class MightyFurnaceController extends RectangularMultiblockControllerBase
 
         this._inputPort = this._outputPort = null;
         this._powerPort = null;
+        this._active = false;
+    }
+
+    public boolean isActive() {
+
+        return this._active;
+    }
+
+    public void switchActive() {
+
+        this._active = !this._active;
     }
 
     @Override
@@ -234,5 +245,6 @@ public class MightyFurnaceController extends RectangularMultiblockControllerBase
     private MightyFurnaceIOPortTileEntity _inputPort;
     private MightyFurnaceIOPortTileEntity _outputPort;
     private MightyFurnacePowerTileEntity _powerPort;
+    private boolean _active;
 
 }

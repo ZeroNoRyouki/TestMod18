@@ -5,13 +5,19 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLLog;
 import zero.mods.testmod18.common.multiblock.tile.MightyFurnaceTileEntity;
 import zero.mods.zerocore.common.lib.BlockFacings;
 import zero.mods.zerocore.common.lib.PropertyBlockFacings;
 import zero.mods.zerocore.common.multiblock.IMultiblockPart;
+import zero.mods.zerocore.common.multiblock.MultiblockControllerBase;
+import zero.mods.zerocore.common.multiblock.rectangular.PartPosition;
 
 import java.util.ArrayList;
 
@@ -21,6 +27,30 @@ public class MightyFurnaceBlockWall extends MightyFurnaceBlockBase {
     public MightyFurnaceBlockWall(String name) {
 
         super(name, MightyFurnaceBlockType.Wall);
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, BlockPos position, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
+
+        IMultiblockPart tile = this.getMultiblockPartAt(world, position);
+
+        if (tile instanceof MightyFurnaceTileEntity) {
+
+            MightyFurnaceTileEntity part = (MightyFurnaceTileEntity)tile;
+            MightyFurnaceController controller = (MightyFurnaceController)part.getMultiblockController();
+
+            if (null == controller)
+                FMLLog.warning("WALL - got null controller!");
+
+            if ((null != controller) && controller.isAssembled()) {
+
+                controller.switchActive();
+                world.markBlockForUpdate(position);
+                return true;
+            }
+        }
+
+        return super.onBlockActivated(world, position, state, player, side, hitX, hitY, hitZ);
     }
 
     @Override
@@ -47,6 +77,20 @@ public class MightyFurnaceBlockWall extends MightyFurnaceBlockBase {
 
             //return facings.toBlockState(state);
             state = state.withProperty(FACES, facings.toProperty());
+
+
+            // active icon hack
+
+            if (wallTile.getPartPosition().isFace()) {
+
+                MightyFurnaceController controller = (MightyFurnaceController)wallTile.getMultiblockController();
+                boolean active = controller.isAssembled() && controller.isActive();
+
+                if (active)
+                    state = state.withProperty(FACES, PropertyBlockFacings.Opposite_EW);
+
+            }
+
         }
 
         return state;
@@ -76,6 +120,7 @@ public class MightyFurnaceBlockWall extends MightyFurnaceBlockBase {
         values.addAll(PropertyBlockFacings.FACES);
         values.addAll(PropertyBlockFacings.ANGLES);
         values.addAll(PropertyBlockFacings.CORNERS);
+        values.add(PropertyBlockFacings.Opposite_EW);
 
         FACES = PropertyEnum.create("faces", PropertyBlockFacings.class, values);
     }
