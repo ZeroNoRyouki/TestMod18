@@ -1,6 +1,6 @@
 package zero.mods.testmod18.client.gui;
 
-import net.minecraft.client.Minecraft;
+
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -8,9 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import zero.mods.testmod18.common.blocks.ContainerDirtChest90000;
-import zero.mods.testmod18.common.blocks.ContainerSmallChest;
 import zero.mods.testmod18.common.blocks.tile.TileDirtChest90000;
-import zero.mods.testmod18.common.blocks.tile.TileSmallChest;
 import zero.mods.testmod18.lib.References;
 import zero.mods.zerocore.client.helpers.Render;
 
