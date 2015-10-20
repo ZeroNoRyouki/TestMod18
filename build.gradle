@@ -48,7 +48,7 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
 	compile files {
-        "../zerocore/build/libs/zerocore-1.8-0.0.1.jar"
+        "../ZeroCore/build/libs/ZeroCore-1.8-0.0.1.jar"
     }
 }
 
