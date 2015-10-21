@@ -8,6 +8,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -32,6 +33,8 @@ public class MightyFurnaceBlockWall extends MightyFurnaceBlockBase {
     @Override
     public boolean onBlockActivated(World world, BlockPos position, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 
+        FMLLog.warning("WALL - onBlockActivated");
+
         IMultiblockPart tile = this.getMultiblockPartAt(world, position);
 
         if (tile instanceof MightyFurnaceTileEntity) {
@@ -43,9 +46,15 @@ public class MightyFurnaceBlockWall extends MightyFurnaceBlockBase {
                 FMLLog.warning("WALL - got null controller!");
 
             if ((null != controller) && controller.isAssembled()) {
-
+                /*
                 controller.switchActive();
                 world.markBlockForUpdate(position);
+                */
+
+                int energy = controller.getEnergyStored(EnumFacing.UP);
+
+                player.addChatMessage(new ChatComponentText(String.format("Energy stored = %d RF", energy)));
+
                 return true;
             }
         }
