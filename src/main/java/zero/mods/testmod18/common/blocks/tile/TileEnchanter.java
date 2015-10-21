@@ -1,6 +1,6 @@
 package zero.mods.testmod18.common.blocks.tile;
 
-import net.minecraft.enchantment.Enchantment;
+
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.*;
