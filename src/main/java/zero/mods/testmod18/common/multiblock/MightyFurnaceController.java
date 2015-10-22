@@ -41,7 +41,12 @@ public class MightyFurnaceController extends RectangularMultiblockControllerBase
     @Override
     public int receiveEnergy(EnumFacing facing, int maxReceive, boolean simulate) {
 
-        return this.getRFStorage().receiveEnergy(maxReceive, simulate);
+        FMLLog.info("RFTEST - controller:receiveEnergy called (%s, %d, %s)", facing.toString(), maxReceive, simulate ? "simulation" : "real" );
+
+        int r = this.getRFStorage().receiveEnergy(maxReceive, simulate);
+
+        FMLLog.info("RFTEST - controller:receiveEnergy result = %d", r);
+        return r;
     }
 
     @Override

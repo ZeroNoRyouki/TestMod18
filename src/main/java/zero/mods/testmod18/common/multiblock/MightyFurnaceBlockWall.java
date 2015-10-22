@@ -8,16 +8,16 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLLog;
 import zero.mods.testmod18.common.multiblock.tile.MightyFurnaceTileEntity;
+import zero.mods.zerocore.common.helpers.CodeHelper;
 import zero.mods.zerocore.common.lib.BlockFacings;
 import zero.mods.zerocore.common.lib.PropertyBlockFacings;
 import zero.mods.zerocore.common.multiblock.IMultiblockPart;
-import zero.mods.zerocore.common.multiblock.MultiblockControllerBase;
-import zero.mods.zerocore.common.multiblock.rectangular.PartPosition;
 
 import java.util.ArrayList;
 
@@ -44,9 +44,19 @@ public class MightyFurnaceBlockWall extends MightyFurnaceBlockBase {
 
             if ((null != controller) && controller.isAssembled()) {
 
+                /*
                 controller.switchActive();
-                world.markBlockForUpdate(position);
-                return true;
+                */
+
+                if (CodeHelper.calledByLogicalServer(world)) {
+
+                    world.markBlockForUpdate(position);
+
+                    int stored = controller.getEnergyStored(EnumFacing.EAST);
+                    player.addChatMessage(new ChatComponentText(String.format("MB - energy stored = %d", stored)));
+
+                    return true;
+                }
             }
         }
 
