@@ -39,8 +39,10 @@ public class MightyFurnaceBlockWall extends MightyFurnaceBlockBase {
             MightyFurnaceTileEntity part = (MightyFurnaceTileEntity)tile;
             MightyFurnaceController controller = (MightyFurnaceController)part.getMultiblockController();
 
-            if (null == controller)
+            if (null == controller) {
                 FMLLog.warning("WALL - got null controller!");
+                player.addChatMessage(new ChatComponentText(String.format("CONTROLLER IS NULL ON %s", CodeHelper.calledByLogicalServer(world) ? "SERVER" : "CLIENT")));
+            }
 
             if ((null != controller) && controller.isAssembled()) {
 
