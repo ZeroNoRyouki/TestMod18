@@ -18,6 +18,11 @@ public class MightyFurnaceIOPortTileEntity extends MightyFurnaceTileEntity imple
         this._inventory = null;
     }
 
+    public MightyFurnaceIOPortTileEntity() {
+
+        this(false);
+    }
+
     public boolean isInput() {
 
         return this._isInput;

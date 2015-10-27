@@ -14,11 +14,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLLog;
 import zero.mods.testmod18.common.multiblock.tile.MightyFurnaceTileEntity;
+import zero.mods.zerocore.common.helpers.CodeHelper;
 import zero.mods.zerocore.common.lib.BlockFacings;
 import zero.mods.zerocore.common.lib.PropertyBlockFacings;
 import zero.mods.zerocore.common.multiblock.IMultiblockPart;
-import zero.mods.zerocore.common.multiblock.MultiblockControllerBase;
-import zero.mods.zerocore.common.multiblock.rectangular.PartPosition;
 
 import java.util.ArrayList;
 
@@ -42,12 +41,26 @@ public class MightyFurnaceBlockWall extends MightyFurnaceBlockBase {
             MightyFurnaceTileEntity part = (MightyFurnaceTileEntity)tile;
             MightyFurnaceController controller = (MightyFurnaceController)part.getMultiblockController();
 
-            if (null == controller)
+            if (null == controller) {
                 FMLLog.warning("WALL - got null controller!");
+                player.addChatMessage(new ChatComponentText(String.format("CONTROLLER IS NULL ON %s", CodeHelper.calledByLogicalServer(world) ? "SERVER" : "CLIENT")));
+            }
 
             if ((null != controller) && controller.isAssembled()) {
                 /*
+                /*
                 controller.switchActive();
+                */
+
+                if (CodeHelper.calledByLogicalServer(world)) {
+
+                    world.markBlockForUpdate(position);
+
+                    int stored = controller.getEnergyStored(EnumFacing.EAST);
+                    player.addChatMessage(new ChatComponentText(String.format("MB - energy stored = %d", stored)));
+
+                    return true;
+                }
                 world.markBlockForUpdate(position);
                 */
 
