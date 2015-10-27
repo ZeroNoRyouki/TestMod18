@@ -5,6 +5,7 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.DungeonHooks;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -22,6 +23,7 @@ import zero.mods.testmod18.common.items.Items;
 import zero.mods.zerocore.common.ModGuiHandler;
 import zero.mods.zerocore.common.helpers.CodeHelper;
 import zero.mods.zerocore.common.helpers.ModObjects;
+import zero.mods.zerocore.common.multiblock.MultiblockEventHandler;
 import zero.mods.zerocore.common.multiblock.MultiblockServerTickHandler;
 
 /**
@@ -39,6 +41,8 @@ public class CommonProxy implements ISidedProxy {
         //GameRegistry.registerTileEntity(TileSmallChest.class, "TileSmallChest"); // FIX
 
         new ModGuiHandler(EntryPoint.getInstance());
+
+        MinecraftForge.EVENT_BUS.register(new MultiblockEventHandler());
     }
 
     @Override

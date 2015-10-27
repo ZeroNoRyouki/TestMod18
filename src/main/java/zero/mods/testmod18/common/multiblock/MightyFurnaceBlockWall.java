@@ -47,7 +47,7 @@ public class MightyFurnaceBlockWall extends MightyFurnaceBlockBase {
             }
 
             if ((null != controller) && controller.isAssembled()) {
-                /*
+
                 /*
                 controller.switchActive();
                 */
@@ -62,7 +62,7 @@ public class MightyFurnaceBlockWall extends MightyFurnaceBlockBase {
                     return true;
                 }
                 world.markBlockForUpdate(position);
-                */
+
 
                 int energy = controller.getEnergyStored(EnumFacing.UP);
 

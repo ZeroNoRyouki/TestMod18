@@ -3,6 +3,7 @@ package zero.mods.testmod18.common.multiblock.tile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IChatComponent;
 import zero.mods.testmod18.EntryPoint;
 import zero.mods.zerocore.common.IModInstance;
@@ -137,7 +138,24 @@ public class MightyFurnaceIOPortTileEntity extends MightyFurnaceTileEntity imple
         return InventoryHelper.getDisplayName(this);
     }
 
+    // save/load state
 
+
+    @Override
+    public void readFromNBT(NBTTagCompound data) {
+
+        super.readFromNBT(data);
+
+        if (data.hasKey("mfIOdir"))
+            this._isInput = data.getBoolean("mfIOdir");
+    }
+
+    @Override
+    public void writeToNBT(NBTTagCompound data) {
+
+        super.writeToNBT(data);
+        data.setBoolean("mfIOdir", this._isInput);
+    }
 
     @Override
     public void isGoodForBottom() throws MultiblockValidationException {

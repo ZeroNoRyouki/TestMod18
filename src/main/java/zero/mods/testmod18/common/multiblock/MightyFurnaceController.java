@@ -47,9 +47,6 @@ public class MightyFurnaceController extends RectangularMultiblockControllerBase
 
         FMLLog.info("RFTEST - controller:receiveEnergy result = %d", r);
         return r;
-        FMLLog.info("POWER : received %d RF", maxReceive);
-
-        return this.getRFStorage().receiveEnergy(maxReceive, simulate);
     }
 
     @Override
