@@ -1,12 +1,8 @@
 package zero.mods.testmod18.common.blocks;
 
-import jdk.nashorn.internal.ir.Block;
 import net.minecraft.block.material.Material;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import zero.mods.testmod18.client.render.TileObjTESR;
-import zero.mods.testmod18.common.blocks.tile.TileObj;
 import zero.mods.testmod18.common.multiblock.MightyFurnaceBlockPort;
 import zero.mods.testmod18.common.multiblock.MightyFurnaceBlockType;
 import zero.mods.testmod18.common.multiblock.MightyFurnaceBlockWall;
@@ -37,7 +33,7 @@ public class Blocks {
     public static final BlockEnchanter enchanter = new BlockEnchanter("enchanter");
     public static final BlockOutwardFacingTest outwardFacing = new BlockOutwardFacingTest("structureBlock");
 
-    public static final MightyFurnaceBlockWall mightyFurnacePart = new MightyFurnaceBlockWall("mightyFurnaceWall");
+    public static final MightyFurnaceBlockWall mightyFurnaceWall = new MightyFurnaceBlockWall("mightyFurnaceWall");
     public static final MightyFurnaceBlockPort mightyFurnacePowerPort = new MightyFurnaceBlockPort("mightyFurnacePowerPort", MightyFurnaceBlockType.Power);
     public static final MightyFurnaceBlockPort mightyFurnaceInputPort = new MightyFurnaceBlockPort("mightyFurnaceInputPort", MightyFurnaceBlockType.Input);
     public static final MightyFurnaceBlockPort mightyFurnaceOutputPort = new MightyFurnaceBlockPort("mightyFurnaceOutputPort", MightyFurnaceBlockType.Output);
@@ -65,7 +61,11 @@ public class Blocks {
         Blocks.enchanter.registerModels();
         Blocks.outwardFacing.registerModels();
 
-        Blocks.mightyFurnacePart.registerModels();
+        Blocks.mightyFurnaceWall.registerModels();
+        Blocks.mightyFurnacePowerPort.registerModels();
+        Blocks.mightyFurnaceInputPort.registerModels();
+        Blocks.mightyFurnaceOutputPort.registerModels();
+
 
 
 

@@ -1,0 +1,18 @@
+{
+    "parent": "block/cube",
+	"textures": {
+		"up": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
+		"down": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
+		"south": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
+		"north": "testmod18:blocks/multiblock/powerFurnace/SingleBlockItemOutput",
+		"east": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple",
+		"west": "testmod18:blocks/multiblock/powerFurnace/SingleBlockSimple"
+	},
+    "display": {
+        "thirdperson": {
+            "rotation": [ 10, -45, 170 ],
+            "translation": [ 0, 1.5, -2.75 ],
+            "scale": [ 0.375, 0.375, 0.375 ]
+        }
+    }
+}
