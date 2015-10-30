@@ -12,6 +12,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import thaumcraft.api.ThaumcraftApi;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
 import zero.mods.testmod18.EntryPoint;
 import zero.mods.testmod18.common.blocks.tile.TileSmallChest;
 import zero.mods.testmod18.common.enchantment.TestEnchantment;
@@ -43,6 +46,8 @@ public class CommonProxy implements ISidedProxy {
         new ModGuiHandler(EntryPoint.getInstance());
 
         MinecraftForge.EVENT_BUS.register(new MultiblockEventHandler());
+
+        this.addThaumcraftAspects();
     }
 
     @Override
@@ -57,7 +62,7 @@ public class CommonProxy implements ISidedProxy {
 
         // enchantments
 
-        EntryPoint.testEnchantment = new TestEnchantment(150);
+        EntryPoint.testEnchantment = new TestEnchantment(250);
 
 
         //new WorldGenHandler().register();
@@ -114,4 +119,14 @@ public class CommonProxy implements ISidedProxy {
         //The Weight is how often the item is chosen(higher number is higher chance(lower is lower))
     }
 
+
+    void addThaumcraftAspects() {
+
+        ThaumcraftApi.registerObjectTag(new ItemStack(Blocks.mightyFurnaceWall), (new AspectList()).add(Aspect.METAL, 2).add(Aspect.MECHANISM, 1));
+
+        ThaumcraftApi.registerObjectTag(new ItemStack(Blocks.mightyFurnaceInputPort), (new AspectList()).add(Aspect.METAL, 2).add(Aspect.MECHANISM, 2).add(Aspect.VOID, 1));
+        ThaumcraftApi.registerObjectTag(new ItemStack(Blocks.mightyFurnaceOutputPort), (new AspectList()).add(Aspect.METAL, 2).add(Aspect.MECHANISM, 2).add(Aspect.MOTION, 1));
+        ThaumcraftApi.registerObjectTag(new ItemStack(Blocks.mightyFurnacePowerPort), (new AspectList()).add(Aspect.METAL, 2).add(Aspect.MECHANISM, 2).add(Aspect.ENERGY, 1));
+
+    }
 }
