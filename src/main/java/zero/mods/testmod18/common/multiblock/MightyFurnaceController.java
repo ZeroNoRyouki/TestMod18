@@ -2,6 +2,7 @@ package zero.mods.testmod18.common.multiblock;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyReceiver;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
@@ -31,10 +32,11 @@ public class MightyFurnaceController extends RectangularMultiblockControllerBase
         return this._active;
     }
 
+    /*
     public void switchActive() {
 
         //this._active = !this._active;
-    }
+    }*/
 
     // IEnergyReceiver begin
 

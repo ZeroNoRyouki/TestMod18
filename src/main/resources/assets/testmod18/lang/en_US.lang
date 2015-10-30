@@ -25,6 +25,11 @@ tile.testmod18:mywool_13.name=My Wool 14
 tile.testmod18:mywool_14.name=My Wool 15
 tile.testmod18:mywool_15.name=My Wool 16
 tile.testmod18:blockWithFacing.name=A block with facing
+tile.testmod18:mightyFurnaceWall.name=Mighty Furnace wall
+tile.testmod18:mightyFurnacePowerPort.name=Mighty Furnace Power port
+tile.testmod18:mightyFurnaceInputPort.name=Mighty Furnace Input port
+tile.testmod18:mightyFurnaceOutputPort.name=Mighty Furnace Output port
+
 
 # commands
 commands.playerinfo.usage=/playerinfo <uuid|position|boom> ...

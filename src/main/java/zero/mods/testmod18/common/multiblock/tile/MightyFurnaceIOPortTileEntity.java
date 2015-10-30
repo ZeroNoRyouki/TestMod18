@@ -2,8 +2,10 @@ package zero.mods.testmod18.common.multiblock.tile;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IChatComponent;
 import zero.mods.testmod18.EntryPoint;
 import zero.mods.zerocore.common.IModInstance;
@@ -11,7 +13,7 @@ import zero.mods.zerocore.common.helpers.CodeHelper;
 import zero.mods.zerocore.common.helpers.InventoryHelper;
 import zero.mods.zerocore.common.multiblock.MultiblockValidationException;
 
-public class MightyFurnaceIOPortTileEntity extends MightyFurnaceTileEntity implements IInventory {
+public class MightyFurnaceIOPortTileEntity extends MightyFurnaceTileEntity implements IInventory, ISidedInventory {
 
     public MightyFurnaceIOPortTileEntity(boolean isInput) {
 
@@ -137,6 +139,34 @@ public class MightyFurnaceIOPortTileEntity extends MightyFurnaceTileEntity imple
 
         return InventoryHelper.getDisplayName(this);
     }
+
+
+    // ISidedInventory
+
+    @Override
+    public int[] getSlotsForFace(EnumFacing side) {
+
+        return new int[0];
+    }
+
+    /**
+     * Returns true if automation can extract the given item in the given slot from the given side. Args: slot, item,
+     * side
+     */
+    @Override
+    public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
+        return false;
+    }
+
+    /**
+     * Returns true if automation can insert the given item in the given slot from the given side. Args: slot, item,
+     * side
+     */
+    @Override
+    public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
+        return false;
+    }
+
 
     // save/load state
 
