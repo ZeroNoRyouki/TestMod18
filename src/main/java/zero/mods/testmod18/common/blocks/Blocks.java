@@ -3,6 +3,7 @@ package zero.mods.testmod18.common.blocks;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import zero.mods.testmod18.common.blocks.RF.BlockRFProducer;
 import zero.mods.testmod18.common.multiblock.MightyFurnaceBlockPort;
 import zero.mods.testmod18.common.multiblock.MightyFurnaceBlockType;
 import zero.mods.testmod18.common.multiblock.MightyFurnaceBlockWall;
@@ -38,6 +39,7 @@ public class Blocks {
     public static final MightyFurnaceBlockPort mightyFurnaceInputPort = new MightyFurnaceBlockPort("mightyFurnaceInputPort", MightyFurnaceBlockType.Input);
     public static final MightyFurnaceBlockPort mightyFurnaceOutputPort = new MightyFurnaceBlockPort("mightyFurnaceOutputPort", MightyFurnaceBlockType.Output);
 
+    public static final BlockRFProducer rfProducer = new BlockRFProducer("rfProducer");
 
 
     public static void Initialize() {
@@ -65,6 +67,8 @@ public class Blocks {
         Blocks.mightyFurnacePowerPort.registerModels();
         Blocks.mightyFurnaceInputPort.registerModels();
         Blocks.mightyFurnaceOutputPort.registerModels();
+
+        Blocks.rfProducer.registerModels();
 
 
 
