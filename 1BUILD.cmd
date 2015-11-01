@@ -1,5 +1,5 @@
 @echo off
 
-gradlew build --refresh-dependencies --gradle-user-home "x:\gradlehome"
+gradlew build --refresh-dependencies
 
 pause

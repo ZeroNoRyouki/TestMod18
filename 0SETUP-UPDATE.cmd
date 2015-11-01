@@ -1,10 +1,8 @@
 @echo off
 
-gradlew setupDecompWorkspace --refresh-dependencies --gradle-user-home "x:\gradlehome"
+gradlew setupDecompWorkspace --refresh-dependencies
 
-pause
-
-gradlew ideaModule --gradle-user-home "x:\gradlehome"
+gradlew ideaModule
 
 
 
