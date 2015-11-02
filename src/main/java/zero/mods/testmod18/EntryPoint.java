@@ -48,7 +48,6 @@ public class EntryPoint implements IModInstance {
 
         log.info("TestMod MC1.8 preInit!");
 
-
         this.getProxy().onPreInit(event);
 
     }

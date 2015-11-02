@@ -6,6 +6,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.ChunkDataEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -18,6 +19,7 @@ import thaumcraft.api.aspects.AspectList;
 import zero.mods.testmod18.EntryPoint;
 import zero.mods.testmod18.common.blocks.tile.TileSmallChest;
 import zero.mods.testmod18.common.enchantment.TestEnchantment;
+import zero.mods.testmod18.common.integration.Thaumcraft;
 import zero.mods.testmod18.common.potion.Potions;
 import zero.mods.testmod18.test.WorldGenHandler;
 import zero.mods.zerocore.common.ISidedProxy;
@@ -47,7 +49,11 @@ public class CommonProxy implements ISidedProxy {
 
         MinecraftForge.EVENT_BUS.register(new MultiblockEventHandler());
 
-        this.addThaumcraftAspects();
+        if (Thaumcraft.isThaumcraftPresent()) {
+
+            this._integrationThaumcraft = new Thaumcraft();
+            this._integrationThaumcraft.onPreInit(event);
+        }
     }
 
     @Override
@@ -71,6 +77,9 @@ public class CommonProxy implements ISidedProxy {
 
         FMLCommonHandler.instance().bus().register(new MultiblockServerTickHandler());
 
+        if (null != this._integrationThaumcraft)
+            this._integrationThaumcraft.onInit(event);
+
     }
 
     @Override
@@ -80,6 +89,8 @@ public class CommonProxy implements ISidedProxy {
 
         Potions.Initialize();
 
+        if (null != this._integrationThaumcraft)
+            this._integrationThaumcraft.onPostInit(event);
     }
 
     public void spawnTestFX(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
@@ -120,13 +131,7 @@ public class CommonProxy implements ISidedProxy {
     }
 
 
-    void addThaumcraftAspects() {
+    private Thaumcraft _integrationThaumcraft;
 
-        ThaumcraftApi.registerObjectTag(new ItemStack(Blocks.mightyFurnaceWall), (new AspectList()).add(Aspect.METAL, 2).add(Aspect.MECHANISM, 1));
 
-        ThaumcraftApi.registerObjectTag(new ItemStack(Blocks.mightyFurnaceInputPort), (new AspectList()).add(Aspect.METAL, 2).add(Aspect.MECHANISM, 2).add(Aspect.VOID, 1));
-        ThaumcraftApi.registerObjectTag(new ItemStack(Blocks.mightyFurnaceOutputPort), (new AspectList()).add(Aspect.METAL, 2).add(Aspect.MECHANISM, 2).add(Aspect.MOTION, 1));
-        ThaumcraftApi.registerObjectTag(new ItemStack(Blocks.mightyFurnacePowerPort), (new AspectList()).add(Aspect.METAL, 2).add(Aspect.MECHANISM, 2).add(Aspect.ENERGY, 1));
-
-    }
 }

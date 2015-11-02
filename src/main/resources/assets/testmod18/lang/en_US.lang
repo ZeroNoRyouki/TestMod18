@@ -46,3 +46,12 @@ tile.container.enchanther=Da Magician
 #potions
 potion.drowning=Da Drowing
 
+#thaumcraft integration
+tc.research_category.myThuamcraftTestingCategory=My Thaumcraft test category
+tc.research_name.testmod18:res1=La prima ricerca
+tc.research_text.testmod18:res1=Il test è andato bene a quanto pare...
+tc.research_text.testmod18:res1_p1=Questo è il testo della prima pagina della prima ricerca
+tc.research_name.testmod18:res2=La seconda ricerca
+tc.research_text.testmod18:res2=Anche il secondo test è andato bene...
+tc.research_text.testmod18:res2_p1=Questo è il testo della prima pagina della seconda ricerca
+tc.research_text.testmod18:res2_p3=Questo è il testo della terza pagina della seconda ricerca

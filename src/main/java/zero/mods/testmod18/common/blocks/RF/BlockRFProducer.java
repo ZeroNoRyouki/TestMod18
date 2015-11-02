@@ -33,6 +33,8 @@ public class BlockRFProducer extends ModBlock implements ITileEntityProvider {
         this.setHardness(1.5F);
         this.setResistance(10.0F);
         this.setStepSound(this.soundTypePiston);
+
+        this.registerBlockTileEntity(TileRFProducer.class);
     }
 
     @Override
