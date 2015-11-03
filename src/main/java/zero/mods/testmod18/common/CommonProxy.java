@@ -131,7 +131,7 @@ public class CommonProxy implements ISidedProxy {
     }
 
 
-    private Thaumcraft _integrationThaumcraft;
+    protected Thaumcraft _integrationThaumcraft;
 
 
 }

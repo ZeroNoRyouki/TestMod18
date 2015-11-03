@@ -1,15 +1,20 @@
 package zero.mods.testmod18.client;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import zero.mods.testmod18.client.particles.TestFX;
 import zero.mods.testmod18.client.particles.TestFX2;
 import zero.mods.testmod18.common.CommonProxy;
 import zero.mods.testmod18.common.blocks.Blocks;
+import zero.mods.testmod18.common.integration.thaumcraft.EntityVisBomb;
 import zero.mods.testmod18.common.items.Items;
 import zero.mods.zerocore.common.multiblock.MultiblockClientTickHandler;
 
@@ -18,6 +23,20 @@ import zero.mods.zerocore.common.multiblock.MultiblockClientTickHandler;
  */
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
+
+    @Override
+    public void onPreInit(FMLPreInitializationEvent event) {
+
+        super.onPreInit(event);
+
+        if (null != this._integrationThaumcraft) {
+
+            // FIX
+            RenderingRegistry.registerEntityRenderingHandler(EntityVisBomb.class,
+                    new RenderSnowball(Minecraft.getMinecraft().getRenderManager() , net.minecraft.init.Items.ender_pearl /* Thaumcraft.visBom */, Minecraft.getMinecraft().getRenderItem()));
+        }
+
+    }
 
     @Override
     public void onInit(FMLInitializationEvent event) {

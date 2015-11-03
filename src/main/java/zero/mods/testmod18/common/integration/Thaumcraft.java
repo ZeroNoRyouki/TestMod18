@@ -8,13 +8,17 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchItem;
 import thaumcraft.api.research.ResearchPage;
+import zero.mods.testmod18.EntryPoint;
 import zero.mods.testmod18.common.blocks.Blocks;
+import zero.mods.testmod18.common.integration.thaumcraft.EntityVisBomb;
+import zero.mods.testmod18.common.integration.thaumcraft.ItemVisBomb;
 import zero.mods.testmod18.lib.References;
 import zero.mods.zerocore.common.IModInitializationHandler;
 import zero.mods.zerocore.common.helpers.ModObjects;
@@ -22,6 +26,10 @@ import zero.mods.zerocore.common.helpers.ModObjects;
 public final class Thaumcraft implements IModInitializationHandler {
 
     public static final String THAUMCRAFT_MODID = "Thaumcraft";
+
+
+    public static final ItemVisBomb visBomb = new ItemVisBomb("visBomb");
+
 
     public static boolean isThaumcraftPresent() {
 
@@ -32,6 +40,8 @@ public final class Thaumcraft implements IModInitializationHandler {
     public void onPreInit(FMLPreInitializationEvent event) {
 
         this.addAspects();
+
+        EntityRegistry.registerModEntity(EntityVisBomb.class, "entityVisBom", 1, EntryPoint.getInstance(), 80, 3, false);
     }
 
     @Override
