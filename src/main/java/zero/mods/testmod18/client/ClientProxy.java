@@ -2,7 +2,9 @@ package zero.mods.testmod18.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraft.entity.IProjectile;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -16,6 +18,8 @@ import zero.mods.testmod18.common.CommonProxy;
 import zero.mods.testmod18.common.blocks.Blocks;
 import zero.mods.testmod18.common.integration.thaumcraft.EntityVisBomb;
 import zero.mods.testmod18.common.items.Items;
+import zero.mods.testmod18.lib.References;
+import zero.mods.zerocore.client.renderer.entity.RenderProjectile;
 import zero.mods.zerocore.common.multiblock.MultiblockClientTickHandler;
 
 /**
@@ -29,12 +33,6 @@ public class ClientProxy extends CommonProxy {
 
         super.onPreInit(event);
 
-        if (null != this._integrationThaumcraft) {
-
-            // FIX
-            RenderingRegistry.registerEntityRenderingHandler(EntityVisBomb.class,
-                    new RenderSnowball(Minecraft.getMinecraft().getRenderManager() , net.minecraft.init.Items.ender_pearl /* Thaumcraft.visBom */, Minecraft.getMinecraft().getRenderItem()));
-        }
 
     }
 
@@ -59,6 +57,19 @@ public class ClientProxy extends CommonProxy {
         Item item = Item.getItemFromBlock(Blocks.MODELBLOCK);
         ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(modelLocation, "inventory"));
         */
+
+
+
+        if (null != this._integrationThaumcraft) {
+
+            this._integrationThaumcraft.visBomb.registerModels();
+
+
+
+            RenderingRegistry.registerEntityRenderingHandler(EntityVisBomb.class, new RenderProjectile(new ResourceLocation(References.MOD_ID,
+                    "textures/misc/1particles.png")));
+        }
+
 
         FMLCommonHandler.instance().bus().register(new MultiblockClientTickHandler());
 

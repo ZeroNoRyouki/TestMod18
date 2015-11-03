@@ -3,6 +3,8 @@ package zero.mods.testmod18.common.integration;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -10,6 +12,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import thaumcraft.api.ThaumcraftApi;
+import thaumcraft.api.ThaumcraftMaterials;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.research.ResearchCategories;
@@ -22,6 +25,8 @@ import zero.mods.testmod18.common.integration.thaumcraft.ItemVisBomb;
 import zero.mods.testmod18.lib.References;
 import zero.mods.zerocore.common.IModInitializationHandler;
 import zero.mods.zerocore.common.helpers.ModObjects;
+
+import java.util.ArrayList;
 
 public final class Thaumcraft implements IModInitializationHandler {
 
@@ -56,6 +61,74 @@ public final class Thaumcraft implements IModInitializationHandler {
         this.addResearchs();
     }
 
+
+    public static AspectList getStoredAspects(ItemStack itemStack, ArrayList<Aspect> lookup) {
+
+        AspectList result = new AspectList();
+        NBTTagCompound nbt = itemStack.hasTagCompound() ? itemStack.getTagCompound() : null;
+        String aspectTag;
+
+        if (null == nbt)
+            return result;
+
+        for (Aspect aspect : lookup) {
+
+            aspectTag = aspect.getTag();
+            result.merge(aspect, nbt.hasKey(aspectTag) ? nbt.getInteger(aspectTag) / 100 : 0);
+        }
+
+        return result;
+    }
+
+    public static AspectList getStoredPrimalAspects(ItemStack itemStack) {
+
+        return Thaumcraft.getStoredAspects(itemStack, Aspect.getPrimalAspects());
+    }
+
+    public static AspectList getStoredCompoundAspects(ItemStack itemStack) {
+
+        return Thaumcraft.getStoredAspects(itemStack, Aspect.getCompoundAspects());
+    }
+
+    public static int getStoredAspectAmount(ItemStack itemStack, Aspect aspect) {
+
+        int amount = 0;
+
+        if ((null != itemStack) && (null != aspect) && (itemStack.hasTagCompound())) {
+
+            String aspectTag = aspect.getTag();
+            NBTTagCompound nbt = itemStack.getTagCompound();
+
+            if (nbt.hasKey(aspectTag))
+                amount = nbt.getInteger(aspectTag);
+        }
+
+        return amount;
+    }
+
+    public static void setStoredAspectAmount(ItemStack itemStack, Aspect aspect, int amount) {
+
+        if ((null != itemStack) && (null != aspect))
+            itemStack.setTagInfo(aspect.getTag(), new NBTTagInt(amount));
+    }
+
+    public static void addStoredAspectAmount(ItemStack itemStack, Aspect aspect, int amount, int maximum) {
+
+        if ((null != itemStack) && (null != aspect)) {
+
+            int newAmount = Thaumcraft.getStoredAspectAmount(itemStack, aspect) + amount;
+
+            if (maximum > 0)
+                newAmount = Math.min(maximum, newAmount);
+
+            Thaumcraft.setStoredAspectAmount(itemStack, aspect, newAmount);
+        }
+    }
+
+    public static void addStoredAspectAmount(ItemStack itemStack, Aspect aspect, int amount) {
+
+        Thaumcraft.addStoredAspectAmount(itemStack, aspect, amount, -1);
+    }
 
     private void addAspects() {
 
