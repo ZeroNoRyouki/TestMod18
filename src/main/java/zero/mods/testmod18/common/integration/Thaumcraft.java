@@ -65,22 +65,12 @@ public final class Thaumcraft implements IModInitializationHandler {
     public static AspectList getStoredAspects(ItemStack itemStack, ArrayList<Aspect> lookup, boolean keepEmptyAspects) {
 
         AspectList result = new AspectList();
-        NBTTagCompound nbt = itemStack.hasTagCompound() ? itemStack.getTagCompound() : null;
-
-
-        if (null == nbt) {
-            // no NBT tags to read from: just return
-            if (keepEmptyAspects)
-                for (Aspect aspect : lookup)
-                    result.add(aspect, 0);
-
-            return result;
-        }
+        NBTTagCompound nbt = itemStack.getTagCompound();
 
         for (Aspect aspect : lookup) {
 
             String aspectTag = aspect.getTag();
-            int amount = nbt.hasKey(aspectTag) ? nbt.getInteger(aspectTag) / 100 : 0;
+            int amount = (null != nbt) && nbt.hasKey(aspectTag) ? nbt.getInteger(aspectTag) : 0;
 
             if (keepEmptyAspects || (amount > 0))
                 result.merge(aspect, amount);
