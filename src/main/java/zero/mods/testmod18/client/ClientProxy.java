@@ -19,8 +19,8 @@ import zero.mods.testmod18.common.blocks.Blocks;
 import zero.mods.testmod18.common.integration.thaumcraft.EntityVisBomb;
 import zero.mods.testmod18.common.items.Items;
 import zero.mods.testmod18.lib.References;
-import zero.mods.zerocore.client.renderer.entity.RenderProjectile;
 import zero.mods.zerocore.common.multiblock.MultiblockClientTickHandler;
+import zero.mods.zerocore.client.renderer.entity.RenderProjectile;
 
 /**
  * Created by marco on 19/05/2015.

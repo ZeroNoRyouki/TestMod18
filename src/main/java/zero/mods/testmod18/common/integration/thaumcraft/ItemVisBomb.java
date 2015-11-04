@@ -46,7 +46,7 @@ public class ItemVisBomb extends TestModItem implements IRechargable {
     @Override
     public AspectList getAspectsInChargable(ItemStack itemStack) {
 
-        return Thaumcraft.getStoredAspects(itemStack, ItemVisBomb.s_ignisAndPerditio);
+        return Thaumcraft.getStoredAspects(itemStack, ItemVisBomb.s_ignisAndPerditio, true);
     }
 
     @Override

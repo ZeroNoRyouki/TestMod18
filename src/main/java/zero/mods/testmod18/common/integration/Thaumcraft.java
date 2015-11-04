@@ -62,32 +62,41 @@ public final class Thaumcraft implements IModInitializationHandler {
     }
 
 
-    public static AspectList getStoredAspects(ItemStack itemStack, ArrayList<Aspect> lookup) {
+    public static AspectList getStoredAspects(ItemStack itemStack, ArrayList<Aspect> lookup, boolean keepEmptyAspects) {
 
         AspectList result = new AspectList();
         NBTTagCompound nbt = itemStack.hasTagCompound() ? itemStack.getTagCompound() : null;
-        String aspectTag;
 
-        if (null == nbt)
+
+        if (null == nbt) {
+            // no NBT tags to read from: just return
+            if (keepEmptyAspects)
+                for (Aspect aspect : lookup)
+                    result.add(aspect, 0);
+
             return result;
+        }
 
         for (Aspect aspect : lookup) {
 
-            aspectTag = aspect.getTag();
-            result.merge(aspect, nbt.hasKey(aspectTag) ? nbt.getInteger(aspectTag) / 100 : 0);
+            String aspectTag = aspect.getTag();
+            int amount = nbt.hasKey(aspectTag) ? nbt.getInteger(aspectTag) / 100 : 0;
+
+            if (keepEmptyAspects || (amount > 0))
+                result.merge(aspect, amount);
         }
 
         return result;
     }
 
-    public static AspectList getStoredPrimalAspects(ItemStack itemStack) {
+    public static AspectList getStoredPrimalAspects(ItemStack itemStack, boolean keepEmptyAspect) {
 
-        return Thaumcraft.getStoredAspects(itemStack, Aspect.getPrimalAspects());
+        return Thaumcraft.getStoredAspects(itemStack, Aspect.getPrimalAspects(), keepEmptyAspect);
     }
 
-    public static AspectList getStoredCompoundAspects(ItemStack itemStack) {
+    public static AspectList getStoredCompoundAspects(ItemStack itemStack, boolean keepEmptyAspect) {
 
-        return Thaumcraft.getStoredAspects(itemStack, Aspect.getCompoundAspects());
+        return Thaumcraft.getStoredAspects(itemStack, Aspect.getCompoundAspects(), keepEmptyAspect);
     }
 
     public static int getStoredAspectAmount(ItemStack itemStack, Aspect aspect) {
