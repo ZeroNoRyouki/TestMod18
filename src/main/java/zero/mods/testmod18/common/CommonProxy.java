@@ -8,11 +8,13 @@ import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.ChunkDataEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
@@ -39,6 +41,10 @@ public class CommonProxy implements ISidedProxy {
     @Override
     public void onPreInit(FMLPreInitializationEvent event) {
 
+        Side s = event.getSide();
+        String ss = s == Side.SERVER ? "CommonProxy:onPreInit called, reported side is server" : "CommonProxy:onPreInit called, reported side is client";
+        event.getModLog().info(ss);
+
         Items.Initialize();
         Blocks.Initialize();
 
@@ -58,6 +64,8 @@ public class CommonProxy implements ISidedProxy {
 
     @Override
     public void onInit(FMLInitializationEvent event) {
+
+        FMLLog.info("CommonProxy:onInit called, reported side is %s", event.getSide().toString());
 
         // register recipes
 
@@ -84,6 +92,8 @@ public class CommonProxy implements ISidedProxy {
 
     @Override
     public void onPostInit(FMLPostInitializationEvent event) {
+
+        FMLLog.info("CommonProxy:onPostInit called, reported side is %s", event.getSide().toString());
 
         // init potions
 

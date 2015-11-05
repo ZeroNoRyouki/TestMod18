@@ -8,7 +8,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -31,6 +33,8 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void onPreInit(FMLPreInitializationEvent event) {
 
+        FMLLog.info("ClientProxy:onPreInit called, reported side is %s", event.getSide().toString());
+
         super.onPreInit(event);
 
 
@@ -38,6 +42,8 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void onInit(FMLInitializationEvent event) {
+
+        FMLLog.info("ClientProxy:onInit called, reported side is %s", event.getSide().toString());
 
         super.onInit(event);
 
@@ -74,6 +80,16 @@ public class ClientProxy extends CommonProxy {
         FMLCommonHandler.instance().bus().register(new MultiblockClientTickHandler());
 
     }
+
+    @Override
+    public void onPostInit(FMLPostInitializationEvent event) {
+
+        FMLLog.info("ClientProxy:onPostInit called, reported side is %s", event.getSide().toString());
+
+        super.onPostInit(event);
+    }
+
+
 
     @Override
     public void spawnTestFX(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
